@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+
+<script>
+$(function () {
+   	$("#btn1").click(function () {
+    		//입력한 값들을 읽는다
+    		let name = $("#name").val();
+    		let hp = $("#hp").val();
+    		
+    		//ajax를 쓸땐 항상 키가 먹는지 테스트하면서 넘어가기
+    		//나중에 어디가 잘못됬는지 알기위해
+    			
+    		let data ="name="+name+"&hp="+hp;
+    		alert(data);
+    		
+    		//ajax함수를 통해서 백엔드로 데이터를 보낸다
+    		$.ajax({
+    			type:"get",
+    			url:"ex4_read.jsp",
+    			dataType:"html", //백엔드에서 아무것도 리턴 안해줄때 html★
+    			data: data,
+    			success: function(data){
+    				//alert("success");
+    			}
+    		});
+		});
+
+	$("#btn2").click(function () {
+
+    		let name = $("#name").val();
+    		let hp = $("#hp").val();
+    			
+    		let data ="name="+name+"& hp="+hp;
+    		alert(data);
+    		
+    		//.ajax함수를 통해서 백엔드로 데이터를 보낸
+    		$.ajax({
+    			type:"get", //post라 안했으면 get인거다
+    			url:"ex4_read2.jsp",
+    			dataType:"xml", //백엔드에서 보낼게 있을때 xml
+    			data: {"name":name, "hp":hp}, //방법2 (명확한 데이터 써줘야한다)
+    			success: function(data){
+    				
+    			let s ="<h2>"+$(data).text()+"님 데이타를 DB에 추가했어요</h2>";
+    				
+    			$("#show").html(s);	
+    		}
+    	});
+	});
+});
+
+</script>
+</head>
+<body>
+
+	<h3>from 태그에 데이터 입력후 jsp로 보내기 (ajax형식으로)</h3>
+	
+	<!-- ajax에서는 name 값말고 id값을 보낸다 -->
+	<p>이름: <input type="text" id="name" size="10"></p>
+	<p>핸드폰: <input type="text" id="hp" size="10"></p>
+	
+	<button type="button" id="btn1">Ajax으로 서버에 보내기_#1</button>
+	<button type="button" id="btn2">Ajax으로 서버에 보내기_#2</button>
+	
+	<hr>
+	
+	<div id="show"></div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Gugi&family=Hi+Melody&family=Poor+Story&family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+
+<script type="text/javascript">
+
+//전달할 메세지 null값 체크
+
+function check(){
+   
+   if(frm.msg.value==''){
+      alert("메세지를 입력해 주세요");
+      frm.msg.focus();
+      return false; //함수 실행 종료
+   }
+}
+function check2(f){
+   if(f.msg.value==''){
+      alert("메세지를 입력해 주세요");
+      f.msg.focus();
+      return false; //함수 실행 종료
+   }
+}
+
+</script>
+
+</head>
+<body>
+	
+	<h2>폼단위로 전송 (post 방식으로 전달)</h2>
+	
+	<form action="_10_myActionPost.jsp" method="post" name="frm" onsubmit="return check()">
+	                                 <!-- 값을 전달할 때 함수를 호출해서 반환값이 false면 제출 X -->
+	   <b>메세지: </b>
+	   <input type="text" name="msg" size="20"><br>
+	   <input type="submit" value="전송">
+	   <input type="reset" value="취소">
+	</form>
+	
+	<hr>
+	
+	<h2>폼단위로 전송 (get 방식으로 전달, 기본값)</h2>
+	<form action="_10_myActionGet.jsp" method="get" onsubmit="return check2(this)">
+	   <b>메세지: </b>
+	   <input type="text" name="msg" size="20"><br>
+	   <input type="submit" value="전송">
+	   <input type="reset" value="취소">
+	</form>
+
+
+</body>
+</html>

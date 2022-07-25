@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+
+#show{
+   font-family: 'Gamja Flower';
+   font-size: 1.3em;
+   margin-top: 30px;
+}
+
+</style>
+</head>
+<body>
+			
+			<button type="button" class="btn btn-success" id="btn1">foodToXml.xml</button>
+			
+			
+			<button type="button" class="btn btn-danger" id="btn2">studentToJson.jsp</button>
+			
+			<!-- 결과창 -->
+			<div id="show"></div>
+
+	<script type="text/javascript">
+
+			/* xml에서 값을 불러와서 div#show 에 띄우기 */
+			$("#btn1").click(function(){
+			   /* get(url, 성공시 함수) */
+			   $.get("foodToXml.xml",function(data){
+			      var s="";
+			      
+			      $(data).find("food").each(function(i,ele){
+			      
+			         var n=$(ele);
+			         
+			         s+="<div class='alert alert-danger' style='width: 300px;'>";
+			         s+="번호: "+n.attr("no")+"<br>";
+			         s+="음식이름: "+n.find("foodname").text()+"<br>";
+			         s+="<img src='"+n.find("foodphoto").text()+"' width='100'><br>";
+			         s+="가격: "+n.find("price").text()+"원<br>";
+			         s+="수량: "+n.find("cnt").text()+"개<br>";			         
+			         s+="</div>";
+			      });
+			      $("#show").html(s);
+			   });
+			});
+
+
+		/* json에서 값을 불러와서 div#show 에 띄우기 */
+		
+		$("#btn2").click(function(){
+		 
+		   $.getJSON("studentToJson.jsp",function(data){
+		      
+		      var s="";
+		      $.each(data,function(i,item){
+		         s+="<div class='alert alert-info' style='width: 300px;'>";
+		         
+		         s+="번호: "+item.num+"<br>";
+		         s+="학생이름: "+item.name+"<br>";
+		         s+="<img src='"+item.photo+"' width='100'><br>";
+		         s+="java점수: "+item.java+"점<br>";
+		         s+="spring점수: "+item.string+"점<br>";		         
+		         s+="</div>"
+		      });
+		      
+		      $("#show").html(s);
+		      
+		      
+		      
+		   });
+		   
+		   
+		});
+
+	</script>
+
+</body>
+</html>

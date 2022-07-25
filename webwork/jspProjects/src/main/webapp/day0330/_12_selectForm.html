@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+
+    table{
+        border-collapse: collapse;
+        border: 2px solid gray;
+        width: 250px;
+    }
+
+    tr, th, td{
+        border: 1px solid green;
+        font-size: 11pt;
+    }
+</style>
+
+</head>
+<body>
+    <form action="_12_multAction.jsp" method="post">
+        <table>
+          <tr>
+            <th width="70">근무희망1</th>
+            <td>
+                <select name="ctiy" id="" size="1">
+                    <option value="서울">서울</option>
+                    <option value="경기">경기</option>
+                    <option value="인천">인천</option>
+                    <option value="광주">광주</option>
+                    <option value="대전">대전</option>
+                    <option value="대구">대구</option>
+                    <option value="세종">세종</option>
+                </select>
+            </td>
+         </tr>
+
+         <tr>
+            <th width="70">근무희망2</th>
+            <td>
+                <select name="ctiy2" id="" size="7" multiple style="width:100px;">
+                    <option value="서울">서울</option>
+                    <option value="경기">경기</option>
+                    <option value="인천">인천</option>
+                    <option value="광주">광주</option>
+                    <option value="대전">대전</option>
+                    <option value="대구">대구</option>
+                    <option value="세종">세종</option>
+                </select>
+            </td>
+         </tr>
+
+         <tr>
+             <td colspan="2" align="center">
+              <input type="submit" value="전송">
+              <input type="reset" value="초기화">
+            </td>
+         </tr>
+        </table>
+    </form>
+        
+
+</body>
+</html>

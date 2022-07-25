@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+</style>
+
+</head>
+<body>
+
+    <h3>폼태그 #2</h3>
+    <form action="_13_action.jsp" method="post">
+        <table class="table table-bordered" style="width:400px">
+            <tr>
+                <th width="100" bgcolor="orange">상품명</th>
+                <td>
+                    <input type="text" name="sang" class="form-control" required>
+                </td>
+            </tr>
+
+            <tr>
+                <th width="100" bgcolor="orange">색상</th>
+                <td>
+                    <input type="checkbox" name="scolor" id="" value="red">빨강
+                    <input type="checkbox" name="scolor" id="" value="blue">파랑
+                    <input type="checkbox" name="scolor" id="" value="pink">핑크
+                    <input type="checkbox" name="scolor" id="" value="cyan">하늘
+                    <input type="checkbox" name="scolor" id="" value="black" checked>검정
+                </td>
+            </tr>
+
+            <tr>
+                <th width="100" bgcolor="orange">사이즈</th>
+                <td>
+                    <input type="radio" name="ssize" id="" value="90">90 &nbsp;&nbsp;
+                    <input type="radio" name="ssize" id="" value="95">95 &nbsp;&nbsp;
+                    <input type="radio" name="ssize" id="" value="100">100 &nbsp;&nbsp;
+                    <input type="radio" name="ssize" id="" value="105" checked>105
+                </td>
+            </tr>
+
+            <tr>
+                <th width="100" bgcolor="orange">추가상품</th>
+                <td>
+                    <select name="chuga" id="" class="form-control">
+                        <option value="요가매트">요가매트</option>
+                        <option value="짐볼">짐볼</option>
+                        <option value="요가양말">요가양말</option>
+                        <option value="아령">아령</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit" class="btn btn-info">서버로 전송</button>
+                    
+                </td>
+            </tr>
+        </table>    
+    </form>
+
+</body>
+</html>

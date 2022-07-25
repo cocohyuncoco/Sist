@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+
+#show{
+   font-family: 'Gamja Flower';
+   font-size: 1.3em;
+   margin-top: 30px;
+}
+
+</style>
+</head>
+<body>
+		<h2>JQuery의 get( ) 함수의 XML 데이터 읽어오기</h2>
+		<button type="button" class="btn btn-success" id="btn1">Team To Xml</button>
+		
+		<h2>JQuery의 getJSON( ) 함수의 JSON 데이터 읽어오기</h2>
+		<button type="button" class="btn btn-danger" id="btn2">Info To Json</button>
+		
+		<!-- 결과창 -->
+		<div id="show"></div>
+		
+		<script type="text/javascript">
+		
+		/* xml에서 값을 불러와서 div#show 에 띄우기 */
+		$("#btn1").click(function(){
+		   /* get(url, 성공시 함수) */
+		   $.get("teamtoxml.jsp",function(data){
+		      var s="";
+		      
+		      $(data).find("team").each(function(i,ele){
+		         var n=$(ele);
+		         s+="<div class='alert alert-danger' style='width: 400px;'>";
+		         s+="No: "+n.attr("num")+",";
+		         s+="이름: "+n.find("name").text()+"<br>";
+		         s+="운전면허: "+n.find("driver").text()+"<br>";
+		         s+="주소: "+n.find("addr").text()+"<br>";
+		         s+="작성일: "+n.find("writeday").text();
+		         s+="</div>";
+		      });
+		      $("#show").html(s);
+		   });
+		});
+		
+		
+		/* json에서 값을 불러와서 div#show 에 띄우기 */
+		
+		$("#btn2").click(function(){
+		 
+		   $.getJSON("infotojson.jsp",function(data){
+		      
+		      var s="";
+		      $.each(data,function(i,item){
+		         s+="<div class='alert alert-info' style='width: 300px;'>";
+		         s+="index: "+i+"<br>";
+		         s+="num: "+item.num+"<br>";
+		         s+="name: "+item.name+"<br>";
+		         s+="hp: "+item.hp+"<br>";
+		         s+="age: "+item.age+"<br>";
+		         s+="<img src='"+item.photo+"' width='100'><br>";
+		         s+="</div>"
+		      });
+		      
+		      $("#show").html(s);
+		      
+		      
+		      
+		   });
+		   
+		   
+		});
+
+</script>
+
+
+</body>
+</html>

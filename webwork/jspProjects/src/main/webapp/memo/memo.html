@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style type="text/css">
+		div.memo{
+		   position: absolute;
+		   /* border: 1px solid gray; */
+		   font-family: 'Song Myung', serif;
+		   font-size: 1.4em;
+		}
+		div.button{
+		   line-height: 150px;
+		   top: 30px;
+		   width: 400px;
+		   height: 100px;
+		   line-height: 100px;
+		   text-align: center;
+		}
+		div.list{
+		   left: 600px;
+		   top: 100px;
+		   width: 600px;
+		   height: 700px;
+		   padding: 20px 20px;
+		}
+		span.writeday{
+		   float: right;
+		   color: #bbb;
+		}
+		span.writer{
+		   font-weight: bold;
+		}
+		div.addform{
+		   left: 100px;
+		   top: 100px;
+		   width: 500px;
+		   height: 400px;
+		   padding: 20px 20px;
+		}
+		div.updateform{
+		   left: 100px;
+		   top: 100px;
+		   width: 500px;
+		   height: 400px;
+		   padding: 20px 20px;
+		}
+		img.avatar{
+		   cursor: pointer;   
+		}
+		
+		img.select{
+		   border: 2px solid tomato;
+		}
+
+
+</style>
+
+<script type="text/javascript">
+	$(function() {
+		   //처음 로딩할 때 메모 목록 출력
+		   list();
+		   
+		   //버튼 누르기 전까지는 안보이게
+		   $("div.addform").hide();
+		   $("div.updateform").hide();
+		   
+		   //메모추가 버튼 누르면 addform 등장
+		   $("#btnadd").click(function(){
+		      $("div.updateform").hide();
+		      $("div.addform").slideToggle('fast');
+		      
+		   });
+		   
+		   //수정버튼 누르면 updateform이 나오고 addform은 hide
+		   //목록의 수정 버튼
+		   $(document).on("click","span.mod",function(){
+		      
+		      var num=$(this).attr("num");
+		      //alert(num);
+		      $("#unum").val(num);
+		      console.log(num+" 번 수정버튼눌림")
+		      
+		      $.ajax({
+			     type: "get",
+		         url: "memoGetData.jsp",
+		         dataType:"xml", 
+		         data: {"num":num},
+		         success: function(data){
+		            //alert("test");
+		            //ajax로 전달받은 XML 데이터에서 값 불러오기
+		            var writer=$(data).find("writer").text();
+		            var content=$(data).find("content").text();
+		            var avatar=$(data).find("avatar").text();
+		            
+		            //불러온 값 수정폼에 넣어주기
+		            $("#uwriter").val(writer);
+		            $("#ucontent").val(content);
+		            $("#uavatar").val(avatar);
+		            
+		            //해당 이미지에 select 클래스 추가
+		            $("img.uavatar").each(function(i,ele){
+		               //alert("test");
+		               
+		               var imgsrc=$(this).attr("src");
+		               
+		               if(imgsrc==avatar){
+		                  $(this).addClass("select");
+		               } else{
+		                  $(this).removeClass("select");
+		               }
+		            })
+		            //입력폼 숨기고 수정폼 나타내기
+		            $("div.addform").hide();
+		            $("div.updateform").show('fast');
+		            
+		            
+		         }
+		      });
+		   })
+		   
+		   //수정폼의 이미지 선택 시 값 변경하기
+		   $("img.uavatar").click(function(){
+		      $(this).addClass("select");
+		      $(this).siblings().removeClass("select");
+		      $("#uavatar").val($(this).attr("src"));
+		   })
+		   
+		   
+		   
+		   //2번 아바타(이미지)에 select 클래스 추가 - 기본값
+		   $("img.avatar").eq(2).addClass("select");
+		   
+		   //아바타 2번 인덱스 src값 얻어서 input 태그에 넣어주기
+		   $("#avatar").val($("img.avatar").eq(2).attr("src"));
+		   
+		   //아바타 선택시 값 변경하기
+		   $("img.avatar").click(function() {
+		      $(this).siblings().removeClass("select");
+		      $(this).addClass("select");
+		      $("#avatar").val($(this).attr("src"));
+		      //alert($("#avatar").val());
+		   })
+		   
+		   //저장
+		   $("td.dbsave").click(function () {
+		      
+		      var data=$("#addfrm").serialize();
+		      //alert(data);
+		      
+		      $.ajax({
+		         type: "post",
+		         dataType: "html",
+		         url: "memoinsert.jsp",
+		         data: data,
+		         success: function (data) {
+		            //alert("DB에 데이터를 추가하였습니다.");
+		            
+		            // 데이터 입력 성공시 목록 새로고침
+		            list();
+		            
+		            //input창 초기화
+		            $("#writer").val("");
+		            $("#content").val("");
+		            //선택한 아바다 select 클래스 제거
+		         }
+		
+		      });
+		   });
+		   
+		   //삭제이벤트.. 동적이벤트 on!
+		   //새로 생긴 span 태그의 이벤트이므로 동적이벤트로 해야한다.
+		   //on("메서드종류","선택자","성공시함수")
+		   $(document).on("click","span.del",function(){
+		      
+		      var num=$(this).attr("num");
+		      //alert(num);
+		      
+		      $.ajax({
+		         
+		         type:"get",
+		         dataType:"html",
+		         url:"memodelete.jsp",
+		         data:{"num":num},
+		         success: function (data) {
+		            alert("삭제되었습니다.");
+		            //삭제후 목록 새로고침
+		            list();
+		         }
+		      })
+		   });
+		});
+		
+		// 수정내용 DB에 저장하기
+		$(document).on("click","td.dbupdate",function(){
+		   //alert("test");
+		   
+		   //수정폼에 입력한 값 가져오기
+		   var data=$("#updatefrm").serialize();
+		   
+		   $.ajax({
+		      type:"post",
+		      dataType: "html",
+		      data: data,
+		      url: "memoUpDate.jsp",
+		      success: function(data) {
+		         //alert("test");
+		         //목록 새로고침
+		         list();
+		         $("#uwriter").val("");
+		   		 $("#ucontent").val("");
+		   		 $("#uavatar").val("");
+		         
+		      }
+		   })
+		});
+			
+		
+		//사용자 함수 추가.. 리스트
+		function list() {
+		   $.ajax({
+		      type: "get",
+		      dataType: "json",
+		      url: "memoList.jsp",
+		      success: function(data) {
+		         //alert(data.length);
+		         
+		         var s="";
+		         if(data.length==0){
+		            s+="<h3 class='alert alert-info'>저장된 메모가 없습니다.</h3>"
+		         }else{
+		            //alert("test");
+		            //얻어온 JSON 객체를 한줄씩 읽음
+		            $.each(data,function(i,ele){
+		               s+="<table class='table'>";
+		               s+="<tr height='100'><td>";
+		               s+="<span class='writer'>작성자: "+ele.writer+"</span>";
+		               s+="<span class='writeday'>"+ele.writeday+"</span>";
+		               s+="<br>"
+		               s+="<pre class='content'>"+ele.content;
+		               s+="<img src='"+ele.avatar+"' align='right' width='80'></pre>";
+		               //alert(ele.avatar);
+		               s+="</td></tr>";
+		               s+="<span class='mod btn btn-info glyphicon glyphicon-repeat' num="+ele.num+">수정</span>"
+		               s+="<span class='del btn btn-danger glyphicon glyphicon-remove' num="+ele.num+">삭제</span>"
+		               s+="</table><br>";
+		            });
+		            $("div.list").html(s);
+		         }
+		      }
+		   });
+		}
+
+
+</script>
+
+</head>
+<body>
+
+			
+		<div class="memo button">
+			   <button type="button" class="btn btn-danger"
+			   id="btnadd" style="width: 120px;">메모추가</button>
+			</div>
+			<!-- 입력폼 -->
+			<div class="memo addform">
+			   <form id="addfrm" ><!-- action : 동기방식, id : 비동기방식 -->
+			      <table class="table table-bordered">
+			         <caption>메모 추가</caption>
+			         <tr>
+			            <th width="100" bgcolor="#e6e6fa">작성자</th>
+			            <td>
+			               <input type="text" class="form-control input-sm"
+			               name="writer" id="writer" style="width: 120px;">
+			            </td>
+			         </tr>
+			         <tr>
+			            <th width="100" bgcolor="#e6e6fa">메모</th>
+			            <td>
+			               <textarea class="form-control"name="content" id="content" 
+			               style="width: 300px; height: 100px"></textarea>
+			            </td>
+			         </tr>
+			         <tr>
+			            <th width="100" bgcolor="#e6e6fa">아바타</th>
+			            <td>
+			               <!-- 선택한 아바다 src값 전달을 위한 input -->
+			               <input type=hidden name="avatar" id="avatar">
+			               <script type="text/javascript">
+			                  var tag="";
+			                  for(var i=1;i<=10;i++){
+			                     tag+="<img src='../img/"+i+".png' width='60' class='avatar'>";
+			                     if(i==5)
+			                        tag+="<br>";
+			                  }
+			                  document.write(tag);
+			                  
+			               </script>
+			            </td>
+			         </tr>
+			         <tr>
+			            <td colspan="2" align="center" bgcolor="#e6e6fa"
+			            style="cursor: pointer; color: gray" class="dbsave">
+			            DB에 저장하기
+			            </td>
+			         </tr>
+			         
+			      </table>
+			   
+			   </form>
+			</div>
+			
+			
+			<!-- 수정폼 -->
+			<div class="memo updateform">
+			   <form id="updatefrm">
+			   
+			      <!-- num을 hidden으로 넘기기 -->
+			      <input type="hidden" id="unum" name="unum">   
+			   
+			      <table class="table table-bordered">
+			         <caption>메모 수정</caption>
+			         <tr>
+			            <th width="100" bgcolor="#ffd1c2">작성자</th>
+			            <td>
+			               <input type="text" class="form-control input-sm"
+			               name="uwriter" id="uwriter" style="width: 120px;">
+			            </td>
+			         </tr>
+			         <tr>
+			            <th width="100" bgcolor="#ffd1c2">메모</th>
+			            <td>
+			               <textarea class="form-control"name="ucontent" id="ucontent" 
+			               style="width: 300px; height: 100px"></textarea>
+			            </td>
+			         </tr>
+			         <tr>
+			            <th width="100" bgcolor="#ffd1c2">아바타</th>
+			            <td>
+			               <!-- 선택한 아바다 src값 전달을 위한 input -->
+			               <input type="hidden" name="uavatar" id="uavatar">
+			               <script type="text/javascript">
+			                  var tag="";
+			                  for(var i=1;i<=10;i++){
+			                     tag+="<img src='../img/"+i+".png' width='60' class='uavatar'>";
+			                     if(i==5)
+			                        tag+="<br>";
+			                  }
+			                  document.write(tag);
+			                  
+			               </script>
+			            </td>
+			         </tr>
+			         <tr>
+			            <td colspan="2" align="center" bgcolor="#ffd1c2"
+			            style="cursor: pointer; color: gray" class="dbupdate">
+			            수정내용 DB에 저장하기
+			            </td>
+			         </tr>
+			         
+			      </table>
+			   </form>
+			</div>
+			
+			
+			<div class="memo list"></div>
+
+</body>
+</html>

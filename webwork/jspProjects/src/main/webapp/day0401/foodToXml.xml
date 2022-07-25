@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data>
+	<food no="1">
+		<foodname>포도</foodname>
+		<foodphoto>../image/f11.png</foodphoto>
+		<price>4,000</price>
+		<cnt>100</cnt>
+	</food>
+	
+	<food no="2">
+		<foodname>한라봉</foodname>
+		<foodphoto>../image/f12.png</foodphoto>
+		<price>5,500</price>
+		<cnt>5</cnt>
+	</food>
+	
+	<food no="3">
+	<foodname>복숭아</foodname>
+		<foodphoto>../image/f13.png</foodphoto>
+		<price>6,400</price>
+		<cnt>3</cnt>
+	</food>
+	
+	<food no="4">
+		<foodname>배</foodname>
+		<foodphoto>../image/f14.png</foodphoto>
+		<price>3,800</price>
+		<cnt>10</cnt>
+	</food>
+</data>
