@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+
+    .carA{
+        cursor: pointer;
+    }
+
+    .carB{
+        position: absolute;
+        top: 100px;
+        left: 300px; 	  
+    }
+</style>
+<script>
+
+    $(function () {
+        //작은 자동차 사진 넣기
+        let imgs="";
+        for (let i=1; i<=8; i++) {
+
+            let iname ="../image/car_a_0"+i+".png";
+            imgs += "<img src='"+iname+"' class='miniCars'><br>";
+
+        }
+
+        $("div.carA").html(imgs);
+        
+        //큰 자동차 사진 넣기
+        $("div.carB").html("<img src='../image/car_b_01.png' class='bigCar'>");
+
+        //이벤트..작은 이미지에 마우스 올리면 큰 이미지로 바꾸기
+        $("img.miniCars").mouseover(function () {
+           
+            //현재사진
+           let miniCarsImg = $(this).attr("src");
+           
+           //큰 사진으로 변경
+           let bigCarImg = miniCarsImg.replace('_a_','_b_');
+           
+           //현재 자동차 사진 사라지게 효과
+            $("img.bigCar").fadeOut('slow');
+
+            //사진 교체
+            $("img.bigCar").attr("src",bigCarImg);
+
+            //교체된걸 fade효과로 나타나게
+            $("img.bigCar").fadeIn('slow');
+        });
+
+
+    });//제이쿼리 끝
+
+</script>
+</head>
+<body>
+
+    <div class="carA"></div>
+    <div class="carB"></div>
+
+</body>
+</html>

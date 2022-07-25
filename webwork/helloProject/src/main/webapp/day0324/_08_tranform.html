@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+</style>
+
+</head>
+<body>
+
+    <img src="../image/s1.JPG" alt="" width="100">
+    <img src="../image/s2.JPG" alt="" width="100">
+    <img src="../image/s3.JPG" alt="" width="100">
+    <img src="../image/s4.JPG" alt="" width="100">
+
+    <script>
+
+        $("img:eq(0)").hover(function () {
+          //45도 회전
+          $(this).css("transform","rotate(180deg)");
+        },function () {
+            $(this).css("transform","rotate(0deg)");
+        });
+
+        $("img:eq(1)").hover(function () {
+          //-45도 회전
+          $(this).css("transform","rotate(-45deg)");
+        },function () {
+            $(this).css("transform","rotate(0deg)");
+        });
+
+        $("img:eq(2)").hover(function () {          
+        //이미지 두배 확배
+          $(this).css("transform","scale(2,2)"); 
+        },function () {
+        //이미지 크기 원래대로
+            $(this).css("transform","scale(1,1)");
+        });
+
+        $("img:eq(3)").hover(function () {          
+        //translate
+          //$(this).css("transform","translate(-50px,-50px)");//음수면 왼쪽, 위쪽
+          $(this).css("transform","translate(50px,50px)");//양수면 오른쪽, 아래쪽
+        },function () {
+            $(this).css("transform","translate(0px,0px)");
+        });
+    </script>
+</body>
+</html>

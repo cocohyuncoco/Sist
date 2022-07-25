@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myLotto.css">
+<script>
+
+                
+        lotto =[6,12,26,33,38,42];
+          
+        mylotto=new Array(6);
+
+        window.onload=function(){
+               //로또 출력메서드 
+               function writeLotto() {
+                for (let i=0; i<mylotto.length; i++) {
+                  mylotto[i] = parseInt(Math.random()*45)+1;
+
+                  for (let j = 0; j < i; j++) {
+                    if (mylotto[i]==mylotto[j]) {
+                        i--;
+                        break;
+                    }
+                  }
+                }
+                //lotto를 div에 출력
+                let lottodiv = document.getElementsByClassName("lotto");
+                  for (let i = 0; i < lottodiv.length; i++) {
+                    lottodiv[i].innerHTML=mylotto[i];
+                    
+                  }
+
+            }
+         
+            writeLotto();
+            
+          //다른숫자발생 이벤트
+          document.getElementById("btnRefresh").onclick=function(){
+            writeLotto();
+          }
+
+          //결정버튼 이벤트
+          document.getElementById("btnselect").onclick=function(){
+              
+            let score=0;
+
+            //정답과 비교해서 점수계산
+            for (let i = 0; i < mylotto.length; i++) {
+              for (let j = 0; j<lotto.length; j++) {
+                
+                if (mylotto[i]==lotto[j]) {
+                   score++;  
+                }
+                
+              }
+              
+            }
+
+            let s ="<b>이번주 로또 정답<b><br>";
+            for (let i = 0; i < lotto.length; i++) {
+              s+="["+lotto[i]+"]&nbsp;&nbsp;";
+            }
+
+            s+="<br>맞은갯수: "+score+"개";
+
+            /* score에 따른 결과주기 */
+            s+="<br><h3 style='color:red;'>"
+              if (score==6) 
+                  s+="1등!!!"
+              else if(score==5)
+                s+="2등!!!"
+              else if(score==4)
+                s+="3등!!!"
+              else{
+                s+="꽝!!!"
+              
+              s+="</h3>";
+
+            view.innerHTML=s;
+         }
+
+      
+      	}
+      
+      }
+</script>
+
+</head>
+<body>
+                    
+
+     <div class="lotto"> </div>
+     <div class="lotto"> </div>
+     <div class="lotto"> </div>
+     <div class="lotto"> </div>
+     <div class="lotto"> </div>
+     <div class="lotto"> </div> 
+    
+    <br>
+    <hr class="hr" border="5" align="left">
+
+    <button type="button" class="btna" id="btnRefresh">다른숫자 발생</button>
+    <button type="button" class="btna" id="btnselect">결정</button>
+     <br>
+     <br>
+
+     <div id="view"></div>
+
+</body>
+</html>

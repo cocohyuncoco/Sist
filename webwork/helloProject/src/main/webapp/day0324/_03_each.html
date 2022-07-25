@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+
+    .bg_0{background-color: orange; color:blue;}
+    .bg_1{background-color: rgb(30, 255, 0); color:blue;}
+    .bg_2{background-color: rgb(0, 217, 255); color:rgb(255, 0, 221);}
+    .bg_3{background-color: rgb(140, 0, 255); color:rgb(200, 255, 0);}
+    .bg_4{background-color: rgb(255, 0, 0); color:rgb(255, 255, 255);}
+
+</style>
+</head>
+<body>
+    <!--태그를 반복할때 사용하는게 each문-->
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+
+
+    <script>
+        //b태그 갯수만큼 자동반복
+        //여기서 i는 인덱스 0번부터
+        //element는 인덱스에 해당하는 b 태그 : 얘는 생략가능하다
+        $("b").each(function (i, element) {
+           // $(this).text(i); //1 2 3 4 5
+            $(element).text(i); //해당 b태그가 엘리먼트니까 1 2 3 4 5
+        });
+
+    </script>
+    <hr>
+    <ul>
+        <li>사과</li>
+        <li>딸기</li>
+        <li>바나나</li>
+        <li>키위</li>
+        <li>망고</li>
+    </ul>
+
+    <script>
+        //each문으로 각각 끝자리 숫자가 다른 클래스 추가
+        $("ul li").each(function (idx, element) {
+           // $(this).addClass("bg_"+idx);
+           $(element).addClass("bg_"+idx); //element 생략안하고 써주면 그게 해당의 this값 이된다
+        });
+
+        $("ul li").mouseover(function (idx, element) {
+            $(this).append("<b class='star'>★★★<b>");
+        });
+
+        $("ul li").mouseout(function (idx, element) {
+            
+            $("b.star").empty(); //텍스트삭제
+            //$(this).find("b").remove(); //find: 태그 찾아서 , remove()삭제
+            //$(this).next().remove(); //next:다음태그 
+        });
+        
+
+    </script>
+</body>
+</html>

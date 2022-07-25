@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet">
+<script>
+
+    window.onload=function(){
+        let out = document.getElementById("out");
+          // out.style.color='red';
+        
+          //굵게 체크박스 
+          document.getElementById("chrbold").onclick=function(tbold){
+            //console.log(this.value); 클릭시 무조건 on, 안햇을시 null
+            
+            console.log(this.checked); //체크햇을때 true 
+
+            if (this.checked) 
+                out.style.fontWeight='bold';    
+            
+         }
+
+  }  
+      
+  //  window.onload 밖에다 줘야 적용됨..
+
+        //글자색변경
+        function changeColor(tcolor) {
+            console.log(tcolor);
+            out.style.color=tcolor;
+        }
+        //글자크기
+        function changeSize(tsize) {
+            console.log(tsize);
+            out.style.fontSize=tsize+"px";
+        }
+       
+        function changFamily(tfamily){
+            console.log(tfamily);
+            out.style.fontFamily=tfamily;
+        }
+
+        function changeBgColor(tbgcolor) {
+            console.log(tbgcolor);
+            out.style.backgroundColor=tbgcolor;
+        }
+
+        
+
+      
+</script>
+</head>
+<body>
+
+
+
+    <h2>각종 폼태그들 적용</h2>
+    
+    <span>글자색 변경 <input type="color" value="#ffccff" onchange="changeColor(this.value)"></span>
+    <br>
+    <span>글자크기 변경 : 
+        <select name="" id="" onchange="changeSize(this.value)" style="width:100px;">
+            <option value="10">10</option>
+            <option value="13">13</option>
+            <option value="16">16</option>
+            <option value="20">20</option>
+            <option value="24">24</option>
+            <option value="28">28</option>
+        </select>
+    </span>
+
+    <br>
+
+    <div>굵게속성:
+        <input type="checkbox" id="chrbold"> 굵게
+    </div>
+    
+    <div>폰트선택:
+        <!--  font-family: 'Dongle', sans-serif;
+                font-family: 'Gugi', cursive;
+                font-family: 'Kirang Haerang', cursive; -->
+        <input type="radio" name="fam" value="Dongle" onchange="changFamily(this.value)" > 글꼴1
+        <input type="radio" name="fam" value="Gugi" onchange="changFamily(this.value)"> 글꼴2
+        <input type="radio" name="fam" value="Kirang Haerang" onchange="changFamily(this.value)"> 글꼴3
+    </div>
+
+    <div>배경색 선택:
+        <select name="" id="" onchange="changeBgColor(this.value)" style="width: 100px;">
+            <option value="red">빨강</option>
+            <option value="yellow">노랑</option>
+            <option value="pink">핑크</option>
+            <option value="#e0ffff">하늘색</option>
+            <option value="#ffe4b5">흐린오렌지</option>
+            <option value="#fa8072">연어색</option>
+        </select>
+    </div>
+
+    <div id="out" style="margin-top: 30px; padding: 40px;">재미있는 HTML&Css&JavaScript&!!!</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    table{
+        border: 2px solid gray;
+        width: 500px;
+    }
+    tr,th,td{
+        border: 1px dotted gray;
+        font-size: 10pt;
+    }
+    tr{
+        height: 40px;
+    }
+
+    #out{
+        position: absolute;
+        top: 420px; 
+        width: 600px; height: 200px;
+        background-color: beige;
+    }
+</style>
+<script>
+
+    //셀렉트박스
+    function goSelect(jo) {
+        document.getElementById("teamout").innerText=jo;
+    }
+    //날짜
+    function goDate(day) {
+        document.getElementById("dateout").innerText=day;
+    }
+    //키
+      function goHei(hei) {
+        document.getElementById("hei").innerText=hei;
+    }
+    //몸무게
+    function goWei(wei) {
+        document.getElementById("wei").innerText=wei;
+    }
+    //색상
+    function goColor(co) {
+        //document.getElementById("clor").innerText=co;
+        document.getElementById("clor").style.background=co;
+    }
+    
+</script>
+
+</head>
+<body>
+    <form action="#">
+
+        <table>
+            <caption>Radio & Check</caption>
+            <tr>
+                <td>
+                    <b>최종학력을 선택하시오</b>
+                    <!--같은 주제의 라디오박스는 name이 동일해야 한다-->
+                    <input type="radio" name="grade" value="고등학교">고등학교 &nbsp;
+                    <input type="radio" name="grade" value="전문대학">전문대학 &nbsp;
+                    <input type="radio" name="grade" value="4년대학">4년대학 &nbsp;
+                    <input type="radio" name="grade" value="대학원">대학원 &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>가능한 프로그램 언어</b>
+                    <input type="checkbox" name="lang" value="언어">c언어 &nbsp;
+                    <input type="checkbox" name="lang" value="java">java &nbsp;
+                    <input type="checkbox" name="lang" value="jsp">jsp &nbsp;
+                    <input type="checkbox" name="lang" value="spting">spring &nbsp;
+                </td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>이미지 or 파일선택</b>
+                    <input type="file">                
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>세미프로젝트를 가장 잘할것 같은 조</b>
+                    <select name="" id="" onclick="goSelect(value);">
+                        <option value="1조" >1조</option>
+                        <option value="2조">2조</option>
+                        <option value="3조" selected>3조</option>
+                        <option value="4조">4조</option>
+                    </select>
+                    <span id="teamout"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 키는 몇cm?</b>
+                    <input type="number" name="height" min="150" max="210" value="150" step="2"
+                    onclick="goHei(value)">cm
+                    <span id="hei"></span>cm
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 몸무게는 몇kg?</b>
+                    <input type="number" name="weight" min="40" max="120" value="50" step="2"
+                    onclick="goWei(value)">
+                    <span id="wei"></span>kg
+                </td>
+            </tr>
+            <!--color-->
+            <tr>
+                <td>
+                    <b id="clor">색상선택</b>
+                    <input type="color" onclick="goColor(value)">
+                    
+                </td>
+            </tr>
+
+            <!--date-->
+            <tr>
+                <td>
+                    <b>날짜선택</b>
+                    <input type="date" onclick="goDate(value)">
+                    <span id="dateout"></span>
+                </td>
+            </tr>
+            
+            
+        </table>
+
+    </form>
+
+    <div id="out"></div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+   
+    table{
+        border-collapse: collapse;
+    }
+    td{
+        border: 1px solid gray;
+    }
+    p{
+	    background: #fd0a64;
+	    color: #fff;
+	   }
+    .select{
+        background-color: #ffd4e4;
+        font-size: 1.3em;
+    }
+    .small{
+        
+    }
+    .small > img{
+        width: 100px;
+    }
+</style>
+<script>
+    $(function () {
+
+       $("a.small").click(function (e) {
+
+            //기본이벤트 무효화
+            e.preventDefault();
+
+            //모든 select를 다 제거하고 시작
+            $("td").removeClass("select");
+
+           //td에 select 클래스 추가
+            $(this).parent().addClass("select");
+            
+            //다른 td 에 있는 select 는 제거
+            //$(this).parent().parent().siblings().find("td").removeClass("select");
+
+            //작은이미지 클릭시 큰 이미지 나오게하세요
+            //현재이미지명 얻고
+            let imgsrc = $(this).attr("href");
+            //큰 이미지에 작은 이미지 나오게 하기
+            $(".large").fadeTo('slow',0,function () {
+                $(this).attr("src",imgsrc);
+            }).fadeTo('slow',1);
+
+       })
+    });
+
+</script>
+</head>
+<body>
+
+    <table border="1">
+        <tr>
+            <td width="150" align="center">
+                <a href="../image/hee.jpg" class="small">
+                    <img src="../image/hee.jpg" alt="">
+                </a>
+                <p>김태희</p>
+            </td>
+            <td rowspan="4" colspan="4" width="600" align="center">
+                <img src="../image/park.jpg" alt="" class="large">
+            </td>
+        </tr>
+
+        <tr>
+            <td width="150" align="center">
+                <a href="../image/shin.jpg" class="small">
+                    <img src="../image/shin.jpg" alt="">
+                </a>
+                <p>박신혜</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td width="150" align="center">
+                <a href="../image/soojee.jpg" class="small">
+                    <img src="../image/soojee.jpg" alt="">
+                </a>
+                <p>수지</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td width="150" align="center"> 
+                <a href="../image/jeehyeon.jpg" class="small">
+                    <img src="../image/jeehyeon.jpg" alt="">
+                </a>
+                <p>전지현</p>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

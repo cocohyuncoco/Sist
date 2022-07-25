@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    window.onload=function(){
+
+        let flower = document.getElementById("flower");
+        let snoopy = document.getElementById("snoopy");
+        let fruit = document.getElementById("fruit");
+        let del = document.getElementById("delete");
+        let res = document.getElementById("result");
+
+        flower.onclick=function(){
+            let img = confirm("꽃 출력할까요?");
+
+            if(img){
+                res.innerHTML="<img src='../image/f1.png'>";
+            }
+        }
+
+        snoopy.onclick=function(){
+            let img = confirm("수누피 출력할까요?");
+
+            if(img){
+                res.innerHTML="<img src='../image/s3.JPG'>";
+            }
+        }
+
+
+        fruit.onclick=function(){
+            let img = confirm("과일 출력할까요?");
+
+            if(img){
+                res.innerHTML="<img src='../image/f15.png'>";
+            }
+        }
+
+        del.onclick=function(){
+            res.innerHTML="";
+        }
+
+    }
+</script>
+</head>
+<body>
+
+    <button type="button" id="flower">꽃</button>
+    <button type="button" id="snoopy">스누피</button>
+    <button type="button" id="fruit">과일</button>
+    <button type="button" id="delete">이미지삭제</button>
+    <hr>
+    <div id="result">
+     
+    </div>
+
+</body>
+</html>

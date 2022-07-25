@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+    /*
+        Q.아이디가 angel 이고 비밀번호가 1234 이면
+        angel님 방문을 환영합니다
+        아닐시
+        존재하지 않는 아이디 입니다
+        잘못된 비밀번호 입니다
+
+        아이디, 패스워드는 각각의 prompt 창에 입력하여 실행할것
+        normal 함수로 만들것..함수명은 login
+        login 호출하여 출력내용 채팅창에..
+        */
+
+        let memberId = "angel";
+        let memberPw = 1234;
+
+        function login(id, pw) {
+            if (id==memberId) {
+                if (pw==memberPw) {
+                    document.write(memberId+"님 방문을 환영합니다");
+                }else{
+                    document.write("비밀번호가 틀렸습니다");
+                }
+            }else{
+                document.write("아이디가 틀렸습니다");
+            }
+        }
+            
+        let whileId = prompt("아이디","아이디 입력");
+        let whilePw = prompt("비밀번호","비밀번호 입력");
+
+        login(whileId, whilePw);
+</script>
+</body>
+</html>

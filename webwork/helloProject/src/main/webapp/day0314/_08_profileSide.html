@@ -1,0 +1,166 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    html{
+        background: #dddae3;
+    }
+     body{
+        font-family: 'Gowun Batang', serif;
+        font-size: 20px;
+        padding: 50px 0 0 0;
+    }
+    h2{
+        margin: 0;
+    }
+    #container{
+        width: 1100px;
+        height: 800px;
+        margin: 0 auto;}
+    aside{
+        width: 300px; height: 100%;
+        padding: 20px 0 20px 0;
+        background: linear-gradient(151deg, #484795, rgb(255 164 179));        
+        float: left;
+        text-align: center;        
+        color: #fff;
+    }
+    
+    aside > div > img{
+        border-radius: 100px;
+        background-color: #ebf3ff;
+        box-shadow: 3px 8px 12px #433672;
+    }
+ 
+
+    div#main{
+            float: left;
+            width: 800px; height: 100%;
+            background: linear-gradient(45deg, #fbd6dd, #d4e3fb);
+            padding: 20px;
+        }
+   div#main > section{
+       border-bottom:1px solid #1b1864;
+   }
+   mark{    
+    background: #f7fbb4;
+    color: #4e4a96;
+    font-weight: bolder;
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #000;        
+    }
+    tr{
+        height: 40px;
+    }
+    th, td{
+        border: 1px solid #ccc;
+        padding: 4px;
+        font-size: 20px;
+    }
+    th{
+        background-color: #4e4a96;
+        color: #fff;
+    }
+    td{
+        background-color: #fff;
+    }
+    ul, li{
+        list-style: none;
+        font-weight: 700;
+        padding: 0;
+    }
+    p{
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+
+    <div id="container">
+        <!-- 사이드바 -->
+        
+            <div>
+                <img src="../image/star2.png" alt="이미지">
+                <h1>JoonHee Go</h1>
+                <p>오늘의 최선을 다하기</p>
+            </div>
+
+            <div>
+                <p>Jeju, Korea</p>
+                <p>wnsgml12@naver.com</p>
+            </div>
+            <div>
+                <h2>SNS</h2>                
+                <ul>
+                    <li><a href="https://www.facebook.com/campaign/landing.php?&campaign_id=1662308814&extra_1=s%7Cc%7C514638008096%7Ce%7C%ED%8E%98%EC%9D%B4%EC%8A%A4%20%EB%B6%81%7C&placement=&creative=514638008096&keyword=%ED%8E%98%EC%9D%B4%EC%8A%A4%20%EB%B6%81&partner_id=googlesem&extra_2=campaignid%3D1662308814%26adgroupid%3D69637362208%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-303215285480%26loc_physical_ms%3D1009893%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gclid=Cj0KCQiAybaRBhDtARIsAIEG3kkxzS7v09j9E5pS2hcpT4GD9FfgkHuYJ2DP4NDJ6ir0EV9_gMfXho8aAndbEALw_wcB" target="_new">FaceBook</a></li>
+                    <li><a href="https://www.instagram.com/?hl=ko" target="_new">InstaGram</a></li>
+                </ul>
+            </div>
+        
+       
+        <div id="main">
+            <!-- 자기소개 -->     
+        
+              <h2>Who Am I?</h2>
+              <p><!-- <mark>프론트엔트(Front-end Web Tech.)</mark> --> 웹기술에 관심이 있으며<br>현재 쌍용교육센터 풀스텍에 관한 프로젝트 진행중입니다</p>
+        
+        
+            <!--경력-->
+        
+                <h2>Experience</h2>
+                <ul>
+                    <li>프론트엔드 개발
+                        <ul>
+                            <li>JAVA</li>
+                            <li>HTML5&css</li>
+                            <li>JavaScript</li>
+                            <li>Jquery</li>
+                            <li>Ajax</li>                
+                        </ul>
+                    </li>
+                    
+                    <li>백엔드 개발
+                        <ul>
+                            <li>JAVA</li>
+                            <li>Oracle</li>
+                            <li>springFramework</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+            <!--수상이력, 학력-->
+            
+                <h2>Education</h2>
+                <table>
+                    <caption>학력사항</caption>
+                    <thead>
+                        <tr>
+                            <th>졸업학교</th> <th>전공</th> <th>기간</th> <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>서울대학교</td> <td>정보통신과</td> <td>2018.3~2021.2</td> <td>졸업</td>
+                        </tr>
+                        <tr>
+                            <td>서울고등학교</td> <td>이과</td> <td>2016.3~2018.2</td> <td>졸업</td>
+                        </tr>
+                    </tbody>
+                </table>
+           
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+ 
+ #can{
+     border: 10px solid gold;
+     cursor: crosshair;
+     width: 50%;
+
+ }
+#clr{
+    margin-left: 300px;
+}
+#clr div{
+    float: left;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    cursor: pointer;  
+    margin-left: 2px;
+}
+
+#clear, #eraser{
+   
+    float: left;
+    width: 120px; height: 40px;
+    border: 2px solid green;
+    background: green;
+    color: #fff;
+    border-radius: 50px;
+    line-height: 40px;
+    margin-left: 20px;
+    text-align: center;
+
+}
+
+</style>
+<script>
+
+    window.onload=function(){
+
+        let can = document.getElementById("can");
+        let ctx = can.getContext("2d"); //최소한의 준비사항
+     
+
+        let preX, preY; //선그릴때 현재좌표 여기에 저장
+        let draw = false;
+
+        ctx.strokeStyle="black";
+        ctx.lineCap="round";
+        
+        let idx=1;
+
+        //이벤트
+        can.onmousedown=function(e){
+            draw=true; //마우스를 클릭하고 움직일때만 그림그리기 위해서 true로 준다
+
+            //클릭한곳에서 선이 시작되도록 좌표저장
+            preX=e.pageX; //현재마우스 위치
+            preY=e.pageY;           
+          }
+    
+        //move 이벤트
+        can.onmousemove=function(e){
+                console.log("onmousemove");
+                if (draw==true) {
+                        if (idx==1) {
+                        ctx.beginPath();
+                        ctx.lineWidth=2;
+                        ctx.moveTo(preX, preY); //직전좌표로 이동
+                        ctx.lineTo(e.pageX, e.pageY); //직전좌표부터 현재좌표까지 선
+                        ctx.stroke();
+                        ctx.closePath();
+                        }else if(idx==2){
+                                ctx.fillRect(e.pageX, e.pageY, 50, 50);
+                            }
+                            //현재좌표를 다시 저장
+                            preX=e.pageX; //현재마우스위치
+                            preY=e.pageY;
+                    }
+            }
+           
+        //마우스 때면 안그려지게
+        can.onmouseup=function(){
+            draw=false;
+        }
+
+        //화면초기화
+        document.getElementById("clear").onclick=function(){
+            ctx.fillStyle="#ffffff"; //채우기색 흰색으로
+            ctx.fillRect(0, 0, can.width, can.height);
+        }       
+        //선색 변경하기 (제이쿼리 맛보기)
+        //id가 clr인 태그 바로아래 div 클릭시 이벤트
+        $("#clr>div").click(function (){
+           idx=1;
+           //현재 div태그의 배경색 속성값을 얻어서 선색을 변경
+           ctx.strokeStyle=$(this).css("background-color");
+
+        });
+
+        $("#eraser").click(function () {
+            //선색을 흰색으로 변경해서 지우개 효과
+            idx =2;
+            ctx.strokeStyle="#ffffff";
+            ctx.fillStyle="#ffffff";
+        });
+    }
+</script>
+</head>
+<body>
+
+    <h2>Canvas 활용한 간단 그림판 </h2>
+    <!--  <canvas id="can" width="1000" height="500"></canvas>-->
+    <div id="clr">
+        <div style="background-color: #ffecec;"></div>
+        <div style="background-color: #ffb4b4;"></div>
+        <div style="background-color: #fd7373;"></div>
+        <div style="background-color: #ff3e3e;"></div>
+        <div style="background-color: #ff0000f6;"></div>
+        <div style="background-color: #c00000;"></div>
+        <div style="background-color: #9c0303;"></div>
+        <div style="background-color: #680000;"></div>
+        <div style="background-color: #4b0909;"></div>
+        <div style="background-color: #000000;"></div>
+
+    </div>
+
+    <div id="clear">화면초기화</div>
+    <div id="eraser">지우개</div>
+</body>
+</html>

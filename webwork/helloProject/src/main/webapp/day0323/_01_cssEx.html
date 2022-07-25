@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+    d{
+    }   
+</style>
+<script>
+    //javaScript 의 window.onload 해당 ->  $(function)
+    $(function(){ // 제이쿼리의 window.onload
+        //alert("load");
+        //css 함수 : style 변경
+        //css(속성) : 해당요소 속성에 대한 값을 반환
+        //css (속성, 값) : 속성을 해당값으로 변경
+        //$(selector) : $안에 접근을 하기위한 요소값을 selector
+
+        //모든 b태그의 글꼴 크기를 16pt 로 변경하시오
+        $("b").css("font-size", "16pt");
+
+        //b태그 중에서 클래스명이 happy인 태그의 배경색을 토마토로 변경
+        $("b.happy").css("background-color", "tomato");
+
+        //모든 h2 태그의 border를 변경하고 글자색을 변경하시오
+        //$("h2").css("border","3px solid pink").css("color","red");
+
+        //방법2
+        $("h2").css({
+            "border":"5px groove gold",
+            "color":"gray"
+        });
+
+        //모든 이미지 속성인 src를 변경하시오
+        //스타일변경은 css, 속성변경은 attr을 사용
+        //이미지의 width 속성도 변경하시오
+        //$("img").attr("src","../image/김치찌개.png").css("width","200px");
+
+        //스타일 여러개로 변경할경우..이미지, width, border 
+        $("img").attr("src","../image/f1.png").css({
+            "width":"100px",
+            "border":"5px dotted pink"
+        });
+
+        //문제1_id가 yourimg 의 이미지와 너비를 변경하시요
+        $("#yourimg").attr("src","../image/f4.png").css("width","200px");
+
+        //문제2
+        $(".myimg").attr("src","../image/f2.png").css({
+            "width":"300px",
+            "border":"5px solid blue",
+            "border-radius":"100px",
+            "box-shadow":"5px 5px 5px orange"
+        })
+
+        //문제3_span태그 중에서 클래스명이 nice인 태그의 배경색과 글자색 글자크기 변경
+        $("span.nice").css({
+            "background-color":"green",
+            "color":"#fff",
+            "font-size":"20px"
+        })
+
+    }); //제이쿼리 끝
+
+</script>
+</head>
+<body>
+
+
+    <h2>jquery에서 제일 많이 사용하는 함수 css, attr</h2>
+    
+    <b class="happy">B tag Class happy</b>
+    <br>
+    <b>B tag</b>
+
+    <br>
+
+    <span class="nice">Span Tag Class nice</span>
+
+    <br>
+
+    <h2 class="happy">H2 Tag Class happy</h2>
+
+    <h2>내가 좋아하는 이미지들</h2>
+    <img alt="">
+    <img class="myimg">
+    <img>
+    <img id="yourimg" src="">
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<link rel="stylesheet" href="../css/header.css">
+
+<script>
+
+    $(function () {
+       
+        $("a").click(function (e) {
+            //a태그 원래기능(페이지이동) 삭제
+            e.preventDefault();
+            
+            //다른 a태그에 있는 active클래스는 삭제
+            $("a").removeClass("active");
+
+            //클릭한 a태그에 active 클래스 추가
+            $(this).addClass("active");
+        });
+	});
+</script>
+</head>
+<body>
+
+    
+        <div class="memo_header"> <!--memo_header 시작-->
+
+            <div class="logo">
+                <a href="" class="naver"></a>
+                <a href="" class="memo"></a>
+            </div>
+
+    
+                <div class="memo_nav">
+                    <ul>
+                        <li>
+                            <a href="#" class="mail"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="calendar"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="memo"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="contact"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="ndrive"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="office"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="monetbook"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="menu_more"></a>
+                        </li>
+                    </ul>
+                </div>
+    
+
+            <div class="gnb_right">
+                <ul>
+                    <li>
+                        <a href="" class="gnb_my">
+                          <img src="https://ssl.pstatic.net/static/common/myarea/myInfo.gif" alt="" class="myinfo">
+                          <span class="gnb_name">홍길동</span>             
+                        </a>          
+                    </li>
+                    <li>
+                        <a href="" class="gnb_notice"></a>
+                    </li>
+                    <li>
+                        <a href="" class="gnb_icon"></a>
+                    </li>
+                </ul>
+            </div>
+
+            
+        </div> <!--memo_header 끝-->
+    
+
+</body>
+</html>

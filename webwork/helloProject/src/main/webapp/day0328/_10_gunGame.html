@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+    body{
+        background: url(../image/bg.png) no-repeat 0 0;
+        background-size: cover;
+    }
+
+    #control-wrapper{
+        position: absolute;
+        bottom: 500px;
+        left: 200px;
+    }
+    #sunban-wrapper{
+        width: 900px;
+        height: 500px;
+        margin: 20px auto;
+     
+    }
+
+    .gun{
+        width: 150px;
+        height: 120px;
+        background: url(../image/gun.png) no-repeat 0 0/150px;
+        cursor: pointer;
+    }
+
+    .gun:active{
+        
+        background: url(../image/gun.png) no-repeat 0 100%/150px;
+        cursor: pointer;
+    }
+
+    ul.money{
+        padding: 0;
+        padding-top: 50px;
+    }
+    ul li{
+        list-style: none;
+    }
+
+    #sunban-wrapper > ul.sunban > li{float: left; width: 130px;}
+    
+    ul.sunban{
+	   height: 150px;
+	    width: 900px;
+	    margin: 56px auto;
+        background: url(../image/sunban.png) no-repeat 35% 100%;
+   	 
+    }
+
+    #msg{
+        font: 20px 'Song Myung', serif;
+        position: absolute;
+        left: 550px;
+        top: 500px;
+        border: 10px groove #f37d45;
+        text-align: center;
+        line-height: 70px;
+        width: 800px;
+        height: 200px;
+        background: #ffffffa3;
+    }
+</style>
+<script>
+
+    $(function () {
+        
+       
+
+        //총이미지 클릭시
+        $(".gun").click(function () {       
+
+            //0~11난수 발생시킨다
+            let random = parseInt(Math.random()*12); 
+            console.log(random);
+            //해당 인텍스 인형이 이미 숨졌다면 "2번째 인형은 이미 처리 됐습니다"
+            //만약 아닐경우 "2번째 인형을 맞췄네요"..메세지 출력후 hide
+            //힌트 : $(".sunban img").eq(1).is(":hidden") --> true/false
+            //다른방법으로 해도 됩니다.
+
+            if ($(".sunban img").eq(random).is(":hidden")) {
+                $("#msg").html((random+1)+"번째 인형은 이미 처리되었습니다");
+            }else{
+                $("#msg").html((random+1)+"번째 인형을 맞췄습니다");
+                $(".sunban img").eq(random).hide();
+            }
+
+            let cnt = 0;
+            $(".sunban img").each(function (i, element) {
+                if ($(this).is(":hidden")) {
+                    cnt++;
+                }
+            });
+
+            if (cnt==12) {
+                $("#msg").html("<b>YOU WIN!!!</b>");
+            }
+
+            $(".money img").click(function () {
+                $(this) .hide();
+                $(".sunban img").show();
+
+                //메세지창 비우기
+                $("#msg").empty();
+            });
+
+            
+          });
+
+          
+    });
+
+</script>
+</head>
+<body>
+
+    <div id="control-wrapper">
+        <div class="gun"></div>
+        <ul class="money">
+            <li><img src="../image/money.png" alt=""></li>
+            <li><img src="../image/money.png" alt=""></li>
+            <li><img src="../image/money.png" alt=""></li>
+        </ul>
+        </div>
+
+
+
+        <div id="sunban-wrapper">
+            <ul class="sunban">
+                <li><img src="../image/01.png" alt=""></li>
+                <li><img src="../image/02.png" alt=""></li>
+                <li><img src="../image/03.png" alt=""></li>
+                <li><img src="../image/04.png" alt=""></li>
+                <li><img src="../image/05.png" alt=""></li>
+                <li><img src="../image/06.png" alt=""></li>
+            </ul>
+
+            
+            <ul class="sunban">
+                <li><img src="../image/07.png" alt=""></li>
+                <li><img src="../image/08.png" alt=""></li>
+                <li><img src="../image/09.png" alt=""></li>
+                <li><img src="../image/10.png" alt=""></li>
+                <li><img src="../image/11.png" alt=""></li>
+                <li><img src="../image/12.png" alt=""></li>
+            </ul>
+        </div>
+
+
+    <div id="msg"></div>
+
+</body>
+</html>

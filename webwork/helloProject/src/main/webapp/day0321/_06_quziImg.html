@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    window.onload=function() {
+        
+        let out = document.getElementById("out");
+       // out.style.borderStyle=cborder;    
+
+       document.getElementById("chrborder").onclick=function(){
+
+
+           if (this.checked) {
+               out.style.borderRadius='100px';
+           }else{
+            out.style.borderRadius='0px';
+           }
+       }
+    }
+
+    function chanegeImg(cimg) {
+       out.innerHTML="<img src='"+cimg+"'>";        
+    }
+    function chanegeBorder(cborder) {
+       out.style.borderStyle=cborder;    
+    }
+
+</script>
+</head>
+<body>
+    
+    
+    <div>이미지를 선택하세요 :        
+        <select name="" id="" onchange="chanegeImg(this.value)">
+            <option value="../image/star1.png">물소</option>
+            <option value="../image/star2.png">물병</option>
+            <option value="../image/star3.png">물고기</option>
+            <option value="../image/star4.png">염소</option>
+            <option value="../image/star5.png">소</option>
+        </select>        
+    </div>
+
+    <div>테두리를 선택하세요 :
+        <input type="radio" name="imgradio" value="solid" onchange="chanegeBorder(this.value)">직선
+        <input type="radio" name="imgradio" value="dotted" onchange="chanegeBorder(this.value)">점선
+        <input type="radio" name="imgradio" value="dashed" onchange="chanegeBorder(this.value)">끊어진 직선
+        <input type="radio" name="imgradio" value="inset" onchange="chanegeBorder(this.value)">inset
+        <input type="radio" name="imgradio" value="groove" onchange="chanegeBorder(this.value)">groove
+        <input type="radio" name="imgradio" value="double" onchange="chanegeBorder(this.value)">두 줄
+
+    </div>
+
+    <div>선 굵기 둥글게 :
+        <input type="checkbox" id="chrborder"> 둥글게
+    </div>
+
+    <div id="out" style="margin-top: 30px; border: 5px solid rgb(0, 162, 255); width: 150px; height: 150px;" >  </div>
+
+
+</body>
+</html>

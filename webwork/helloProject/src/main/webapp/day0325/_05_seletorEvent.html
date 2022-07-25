@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+
+    .red{color: red;}
+    .blue{color: blue;}
+    .green{color: green;}
+
+    div.content>b{
+        font: 30px "Black Han Sans",sans-serif;
+    }
+
+    div.content > div > h5{
+        font: 20px "Song Myung",sans-serif;
+        text-indent: 30px; /*들여쓰기*/
+    }
+</style>
+
+<script>
+
+    $(function () {
+
+        //문제: 내용을 클릭시 그 내용에 대한 댓글만 보이고 나머지 댓글 내용은 안보이게
+        $("div.answer").hide();
+
+        $("div.content>b").click(function () {
+          //메인메뉴명을 클릭시 해당메뉴의 서브메뉴가 나타나도록 한다       
+          //$(this).next().show('fast'); 
+          $(this).siblings().show('slow');
+		  //클릭한곳의 부모(div.content)의 형제(siblings)의 자식 (div.answer)는 숨겨라
+          $(this).parent().siblings().find("div.answer").hide();
+        });
+    });
+
+
+</script>
+</head>
+<body>
+    <div class="content red">
+        <b>내용1</b>
+        <div class="answer">
+            <h5>내용1에 대한 댓글1</h5>
+            <h5>내용1에 대한 댓글2</h5>
+            <h5>내용1에 대한 댓글3</h5>
+        </div>
+    </div>
+
+    <div class="content blue">
+        <b>내용2</b>
+        <div class="answer">
+            <h5>내용2에 대한 댓글1</h5>
+            <h5>내용2에 대한 댓글2</h5>
+            <h5>내용2에 대한 댓글3</h5>
+        </div>
+    </div>
+
+    <div class="content green">
+        <b>내용3</b>
+        <div class="answer">
+            <h5>내용3에 대한 댓글1</h5>
+            <h5>내용3에 대한 댓글2</h5>
+            <h5>내용3에 대한 댓글3</h5>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

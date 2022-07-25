@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    #myimg{
+        position: absolute;
+    }
+
+    #btnStart{
+        position: relative;
+        top: 200px;
+        margin-left: 480px;
+        width: 150px;
+        font-size: 20pt;   
+    }
+    #btnStop{
+        position: relative;
+        top: 200px;
+        
+        width: 150px;
+        font-size: 20pt;   
+    }
+</style>
+<script>
+
+    let myimg;
+    let xpos=0;
+    let ms=100; //밀리언 초
+    
+    let inter; //setInterval 에 관한변수..clear 가능...클리어 시키기 위해서는 변수가 필요하다
+
+    window.onload=function(){
+        myimg=document.getElementById("myimg");
+
+        //start 버튼 이벤트
+        document.getElementById("btnStart").onclick=function(){
+            inter = setInterval( function(){
+                myimg.style.left=xpos+"px";
+                xpos+=5;                
+            }, ms);
+        }
+        //stop버튼 
+        document.getElementById("btnStop").onclick=function(){
+            clearInterval(inter); //setInterval 멈춤
+        }
+
+        //키보드 이벤트의 아스키코드값 확인
+        window.onkeyup=function(e){
+            console.log(e.keyCode);
+            //상:38 | 하 : 40 | 좌:37 | 우:39 | 엔터 :13
+        }
+
+    }
+
+</script>
+</head>
+<body>
+
+    <img src="../image/s3.JPG" alt="" id="myimg">
+    <br>
+    <br>
+    <button type="button" id="btnStart">Go!Go!</button>
+    <button type="button" id="btnStop">Stop!!</button>
+
+
+</body> 
+</html>

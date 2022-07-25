@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+    //전역변수 3
+    var age = 28; 
+    var weight = 62.5;
+    var id = 'angel';
+
+    var showInfo = function(){
+         document.write("age: "+age+"<br>");
+         document.write("weight: "+weight+"<br>");
+         document.write("id: "+id+"<br>");
+    }
+
+    showInfo();
+
+    //전역변수 & 지역변수
+    
+    var a = 10; //정수형 전역변수 
+    var b = 100; //정수형 전역변수 
+ 
+    
+    function outer() {
+        var a = 20;
+        
+        document.write("3.outer a: "+a+"<br>");
+        document.write("4.b: "+b+"<br>");
+    }
+
+    outer();
+
+    document.write("1.a: "+a+"<br>");
+    document.write("2.b: "+b+"<br>");
+
+</script>
+
+</body>
+</html>

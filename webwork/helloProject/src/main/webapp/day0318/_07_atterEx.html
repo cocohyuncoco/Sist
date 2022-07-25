@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+    function photoSmall() {
+
+        let p =document.getElementById("myimg");
+
+        //myimg에서 width 속성값 가지고오기
+        let w = p.getAttribute("width");
+
+        console.log(typeof(w)); //string 타입
+
+        //string 타입이라도 -나 *는 숫자로 계산됨 (+안됨)
+        w-=10; //10px 씩 빼고 뺀값을 축적
+        
+
+        p.setAttribute("width",w); //width 속성에다가 w 적용
+    }
+
+
+    //크기 키우는 버튼
+    function photoLarge() {
+
+    let p =document.getElementById("myimg");
+
+    //myimg에서 width 속성값 가지고오기
+    let w =Number(p.getAttribute("width"));//string 타입이라도 -나 *는 숫자로 계산됨 (+안됨) Number로 형변환해주기
+   
+    console.log(typeof(w)); //Int 타입으로 변환시킴
+    w+=10; //10px 씩 빼고 뺀값을 축적
+    console.log(w);
+
+    p.setAttribute("width",w); //width 속성에다가 w 적용
+    }
+
+</script>
+</head>
+<body>
+
+    <div>
+        <h2>이미지 크기조절 이벤트</h2>
+        <button type="button" onclick="photoSmall()">점점작게</button>
+        <button type="button" onclick="photoLarge()">점점크게</button>
+    </div>
+     <img src="../image/soojee.jpg" alt="" id="myimg" width="200">
+
+     <hr>
+
+<script>
+
+    /*
+        배열 초기값에 이미지 5개 넣고 배열을 활용해서 그 이미지를 출력해보세요
+    */
+
+    let arr = ["../image/sekyong.jpg'",
+                "../image/seol.jpg'",
+                "../image/shin.jpg'",
+                "../image/park.jpg'",
+                "../image/ko.jpg'"];
+   
+    let img = "";
+    for (let i=0; i< arr.length; i++) {
+        img += "<img src='"+arr[i]+"' width='200'>"
+        }
+    document.write(img);
+
+
+</script>
+
+</body>
+</html>

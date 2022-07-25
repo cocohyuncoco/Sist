@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    div > div{
+        float: left;
+        margin-top: 30px;
+        margin-left: 30px;    
+        margin-bottom: 22px;
+        /* border: 3px solid #ff0055;
+        background-color: #eb90ae; */
+        border-radius: 100px;
+        width: 100px; height: 100px;
+        line-height: 100px;
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        box-shadow: 5px 5px gray; /*x,y,blur,color*/
+    }
+
+    #one{background-color: #ff4180;}
+    #two{background-color: #51ff0dcb;}
+    #three{background-color: #520223;}
+    #fore{background-color: #110dff;}
+    #five{background-color: #20e5ff;}
+    #six{background-color: #ff5959;}
+
+    #btnstart, #btnstop{
+     
+        width: 70px;
+        height: 70px;
+        border: 1px solid gray;
+        text-align: center;
+        line-height: 70px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 20px;
+
+    }
+
+    
+</style>
+<script>
+
+    window.onload=function(){
+        //시작버튼 이벤트
+        document.getElementById("btnstart").onclick=function(){
+            
+            let lotto = new Array(6);
+
+            interval = setInterval(function () {
+                
+                for (let i = 0; i < lotto.length; i++) {
+                    lotto[i]=parseInt(Math.random()*45)+1; //1부터 45까지의 난수
+
+                    for (let j = 0; j < i; j++) { //중복체크 로직
+                        if (lotto[j]==lotto[i]) {
+                            i--;
+                            break;
+                        }                        
+                    }
+                }
+                // for (let i = 0; i < lotto.length; i++) {
+                //     console.log(lotto[i]);                                       
+                // }
+                one.innerText=lotto[0]; //html에서 text만 쏙 빼서 로또의 0번지에 담아주기
+                two.innerText=lotto[1];
+                three.innerText=lotto[2];
+                fore.innerText=lotto[3];
+                five.innerText=lotto[4];
+                six.innerText=lotto[5];
+            }, 100);
+
+        }
+        //멈춤버튼
+        document.getElementById("btnstop").onclick=function(){
+            clearInterval(interval);
+        }
+    }
+
+
+
+
+</script>
+</head>
+
+<body>
+
+    <div>
+        <div id="one">1</div>
+        <div id="two">2</div>
+        <div id="three">3</div>
+        <div id="fore">4</div>
+        <div id="five">5</div>
+        <div id="six">6</div>
+    </div>
+
+    <button type="button" id="btnstart">시작</button>
+    <button type="button" id="btnstop">멈춤</button>
+</body>
+</html>

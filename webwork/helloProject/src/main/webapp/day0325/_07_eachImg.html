@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+    img{
+        border: 2px groove orange;
+        border-radius: 50px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .Large{
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 400px; top: 250px;
+        border: 10px inset gold;
+    }
+
+    .im{
+        width: 120px;
+        height: 120px;
+        margin-left: 50px;
+    }
+</style>
+
+<script>
+
+    $(function () {
+        
+        //첫번째 이미지로 큰 이미지 일단오게
+        $("#Large").attr("src",$("img:eq(0)").attr("src"));
+        //작은이미지에 마우스 올리면 45도 로테이드, 벗어나면 원래대로
+        $("img.im").hover(function () {
+            $(this).css("transform","rotate(45deg)");
+        }, function () {
+            $(this).css("transform","rotate(0deg)");
+        });
+
+        //작은 이미지 클릭하면 해당이미지가 큰액자에 나오게
+        $("img.im").click(function () {
+            $("img.Large").attr("src",$(this).attr("src"));
+        })
+    })
+
+</script>
+
+</head>
+<body>
+    <div id="show"></div>
+    <img src="" alt="" class="Large" id="Large">
+
+
+    <script>
+        let imginfo = [{name:"../image/f1.png"}, 
+                       {name:"../image/f2.png"}, 
+                       {name:"../image/f3.png"}, 
+                       {name:"../image/f4.png"}, 
+                       {name:"../image/f5.png"}];
+
+        let s = "";
+
+        $.each(imginfo, function (i, element) {
+           s +="<img class='im' src='"+element.name+"'>" 
+        });
+
+        $("#show").html(s);
+    </script>
+
+</body>
+</html>

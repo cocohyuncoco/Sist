@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+
+.memo_header{
+    background-color: #00c73c;
+    height: 55px;
+    border-bottom: 1px solid #00a732;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/* logo css 시작*/
+.memo_header > .logo{
+    width: 136px; height: 55px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.memo_header > .logo a.naver{
+    background: url(../img/navermemoheader.png) no-repeat 0 48%;
+    width: 58px;
+    height: 24px;    
+    display: inline-block;
+}
+
+
+.memo_header > .logo a.memo{
+    background: url(../img/navermemoheader.png) no-repeat 60% 48%; 
+    width: 42px;
+    height: 24px;    
+    display: inline-block;
+}
+/* logo css 끝 */
+
+
+
+
+/* nav css 시작*/
+.memo_header > .memo_nav{
+    width: 406px;
+}
+
+.memo_header > .memo_nav ul{    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.memo_header > .memo_nav ul li{
+    width: 50px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;}
+
+.memo_header > .memo_nav ul li a{
+    display: inline-block;   width: 30px;
+    height: 30px;}
+
+.memo_header > .memo_nav ul li a.mail{
+    background: url(../img/navermemoheader.png) no-repeat 22% 62%;
+ }
+
+.memo_header > .memo_nav ul li a.calendar{
+    background: url(../img/navermemoheader.png) no-repeat 11% 91%;       
+}
+
+.memo_header > .memo_nav ul li a.memo{
+    background:url(../img/navermemoheader.png) no-repeat 0% 76%;   
+}
+
+.memo_header > .memo_nav ul li a.contact{
+    background: url(../img/navermemoheader.png) no-repeat 12% 61%;    
+}
+.memo_header > .memo_nav ul li a.ndrive{
+    background: url(../img/navermemoheader.png) no-repeat 23% 91%;    
+}
+.memo_header > .memo_nav ul li a.office{
+    background: url(../img/navermemoheader.png) no-repeat 71% 76%;    
+}
+.memo_header > .memo_nav ul li a.monetbook{
+    background:url(../img/navermemoheader.png) no-repeat 23% 76%;    
+}
+.memo_header > .memo_nav ul li a.menu_more{
+    width: 20px; height: 20px;
+    background: url(../img/navermemoheader.png) no-repeat 0% 100%;
+}
+
+/* 아이콘 클릭시 color 변경 .active 클래스 추가 */
+.memo_header > .memo_nav ul li a.mail.active{
+    background: url(../img/navermemoheader.png) no-repeat 69% 62%;
+ }
+.memo_header > .memo_nav ul li a.calendar.active{
+    background: url(../img/navermemoheader.png) no-repeat -1% 91%;      
+}
+.memo_header > .memo_nav ul li a.memo.active{
+    background: url(../img/navermemoheader.png) no-repeat 93% 62%;
+}
+.memo_header > .memo_nav ul li a.contact.active{
+    background: url(../img/navermemoheader.png) no-repeat 0% 61%; 
+}
+.memo_header > .memo_nav ul li a.ndrive.active{
+    background: url(../img/navermemoheader.png) no-repeat 33% 91%;    
+}
+.memo_header > .memo_nav ul li a.office.active{
+    background: url(../img/navermemoheader.png) no-repeat 59% 76%;
+}
+.memo_header > .memo_nav ul li a.monetbook.active{
+    background:url(../img/navermemoheader.png) no-repeat 11% 76%;   
+}
+.memo_header > .memo_nav ul li a.menu_more.active{
+     background: url(../img/navermemoheader.png) no-repeat 7% 100%;
+}
+/* 아이콘 클릭시 color 변경 .active 클래스 추가  끝 */
+
+/* nav css 끝*/
+
+
+
+
+
+/* gnb_right css 시작*/
+.memo_header > .gnb_right{
+    width: 200px; height: 55px;
+}
+
+.memo_header > .gnb_right ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    align-content: center;
+}
+
+.memo_header > .gnb_right ul li{
+    padding-right: 18px;
+    border-right: 1px solid #00ae35;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.memo_header > .gnb_right ul li a{
+    display: inline-block;
+    width: 20px; height: 20px;
+}
+
+.memo_header > .gnb_right ul li a.gnb_my{
+    width: 72px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.memo_header > .gnb_right ul li a.gnb_my img.myinfo{
+    width: 28px; height: 28px;
+    border: 1px solid #00a732;
+    border-radius: 100px;
+}
+
+.memo_header > .gnb_right ul li a.gnb_my span.gnb_name{
+    font-size: 12px;
+    color: #fff;
+}
+
+.memo_header > .gnb_right ul li a.gnb_notice{
+    background: url(../img/sp_gnb_v14.png) no-repeat 0 0;
+    background-position: -282px -119px;
+}
+
+.memo_header > .gnb_right ul li a.gnb_icon{
+    background: url(../img/sp_gnb_v14.png) no-repeat 0 0;
+    background-position: -323px -120px;
+    width: 17px;
+}   

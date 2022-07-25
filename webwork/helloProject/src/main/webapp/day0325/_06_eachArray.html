@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+    div.box{
+        border:5px solid tomato;
+        margin-top: 20px;
+        width: 300px; height: 140px;
+        font: 30px "Stylish",sans-serif bold;
+    }
+</style>
+
+</head>
+<body>
+
+    <h3>배열반복시 사용하는 $.each문</h3>
+
+    
+
+    <script>
+        let data1=["red","blue","magente","green","gray","orange"]
+
+        $.each(data1,function (i, ele) {//i:인덱스, ele:엘리먼트 (인덱스에 해당하는 아이템값)
+            let s ="<h2 style='color: "+ele+"; width:200px; '>"+ele+"</h2>";
+            document.write(s);
+        });
+    </script>
+
+
+    <hr>
+    <div id="show"> </div>
+    <script>
+        let info=[{name:"이영자", hp:"010-3333-4444", addr:"서울시"},
+                  {name:"유재석", hp:"010-5555-6666", addr:"경기도"},
+                  {name:"김기열", hp:"010-7777-8888", addr:"전라도"}];
+
+        let s = " ";
+        $.each(info, function (i, element) {
+          	s +="<div class='box'>"; 
+            s += "이름: "+element.name+"<br>";
+            s += "번호: "+element.hp+"<br>";
+            s += "주소: "+element.addr+"<br>";
+            s += "</div>"
+            
+            $("#show").html(s);
+        });
+    </script>
+
+
+</body>
+</html>

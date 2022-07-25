@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+    function sound() {
+        alert("스크립트 함수호출1");
+    }
+
+
+    function gofile(url) {
+        location.href=url;
+    }
+
+</script>
+</head>
+<body>
+
+    <!-- a태그는 파일명과 url을, 버튼은 자바스크립트 함수 호출한다 -->    
+    <input type="button" value="자바스크립트 함수 호출" onclick="sound()"><br><br>
+
+    <!--2. 함수호출이 아니라 직접 호출 (이걸 더많이함) 페이징 이동 같은것-->
+    <!-- 자바스크립트 함수 (location.href)를 이용해서 파일이동 -->
+    <input type="button" value="파일호출(기존스크립트 직접입력)" onclick="location.href='../day0317/_09_imgGallery.html'">
+    <br><br>
+
+    <!-- script 함수에 url 을 변수로 넘겨 실행해도 됨 -->
+    <input type="button" value="파일호출(스크립트함수 만들어실행)" onclick="gofile('../day0317/_09_imgGallery.html');">
+    <br><br>
+
+    <!-- a태그 -->
+    <a href="../day0317/_08_quziAttr.html" target="_new">파일호출</a>
+    <br><br>
+
+    <!-- 자바스크립트를 기입해서 함수방향 알려준다 -->
+    <a href="javascript:sound();">자바스크립트 함수호출</a>
+</body>
+</html>

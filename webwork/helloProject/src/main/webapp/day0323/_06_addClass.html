@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+
+<style>
+    .happy{
+        width: 200px; height: 200px;
+        border: 10px dashed purple;
+        background-image: url(../image/f14.png);
+        background-size: 30px ;
+    }
+</style>
+
+</head>
+<body>
+
+    <h4>addClass, removeClass, toggleClass 연습</h4>
+    <button type="button" id="btn1">스타일 추가 </button>
+    <button type="button" id="btn2">스타일 제거</button>
+    <button type="button" id="btn3">스타일 추가/제거반복</button>
+    
+    <div></div>
+
+
+    <script>
+
+        $("#btn1").click(function () {
+            $("div").addClass("happy"); //특정요소에 class추가
+        });
+
+        $("#btn2").click(function () {
+            $("div").removeClass("happy"); //특정요소에 class삭제
+        });
+
+        $("#btn3").click(function () {
+            $("div").toggleClass("happy"); //특정요소에 class추가 제거 반복
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    #out{
+        position: absolute;
+        top: 100px; left: 20px;
+        background: darkorange;
+        padding: 10px;
+        width: 300px; height: 150px;
+        border: 1px solid gray;
+    }
+</style>
+<script>
+    function test1(a) {
+        alert(a+100);
+    }
+    function test2(str) {
+        alert("문자열"+str+"을 받았어요");
+
+    }
+    function test3() {
+        var a = confirm('데이터를 추가할까요?');
+        if (a==1) {
+            out.innerHTML="추가했어요";            
+        }else{
+            out.innerHTML="취소했어요";            
+        }
+    }
+    /*
+     test4를 누르면 당신의 이름은? 직업은?    
+    */
+    function test4() {
+        var name = prompt("당신의 이름은?");
+        var job = prompt("당신의 직업은?");
+
+        out.innerHTML="저의 이름은 "+name.fontcolor('blue').fontsize(30)+"입니다 <br>직업은 "+job+" 입니다";
+    }
+
+
+    /*
+     안녕하세요 라고 띄우는데 빨간색으로
+    */
+    function test5() {
+        
+        var hello = "<font color='red' size='30'>안녕하세요</font>";
+        out.innerHTML= hello;
+    }
+    
+</script>
+</head>
+<body>
+
+    <input type="button" value="aleat1" onclick="test1(123)">
+    <input type="button" value="aleat2" onclick="test2('아메리카노')">
+    <input type="button" value="confirm" onclick="test3()">
+    <input type="button" value="prompt" onclick="test4()">
+    <input type="button" value="click me!!" onclick="test5()">
+
+
+    <div id="out">
+
+    </div>
+
+</body>
+</html>

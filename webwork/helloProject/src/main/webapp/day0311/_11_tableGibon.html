@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+ .tab1{
+      width: 400px;
+      border: 1px solid #444444;   
+      border-collapse: collapse;        
+    }
+
+    .tab1 tr th{
+
+        border-bottom: 3px solid hotpink;
+        background-color: antiquewhite;
+        color: black;
+    }
+
+    .tab1 td{
+        border-bottom: 1px solid rgb(63, 63, 63);
+        background-color: rgb(205, 253, 241);
+        color: black;
+      }
+</style>
+</head>
+<body>
+
+
+    <table border="1">
+        <caption>[표1]</caption>
+        <thead>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>셀1</td> <td>셀2</td><td>셀3</td>
+            </tr>
+            <tr>
+                <td>셀4</td> <td>셀5</td><td>셀6</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    <table class="tab1"> 
+        <caption>[표2]</caption>
+        <thead>
+            <tr>
+                <th>이름</th><th>나이</th><th>주소</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr>
+                <td>임현정</td><td>30</td><td>서울</td>
+            </tr>
+            <tr>
+                <td>김동규</td><td>31</td><td>서울</td>
+            </tr>
+            <tr>
+                <td>김서준</td><td>5</td><td>서울</td>
+            </tr>
+            <tr>
+                <td>김서예</td><td>1</td><td>서울</td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
+
+    
+    <table border="1px" style="border-collapse: collapse;"> 
+        <caption>[표3]</caption>
+    
+        <colgroup>
+            <col width="100px" style="background: red; color:#fff;" />
+            <col width="400px" />
+            <col width="100px" style="background: red; color:#fff;" />
+            <col width="400px"/>
+          </colgroup>
+        <tbody>
+            <tr>
+                <th>이름</th><td>임현정</td><th>연락처</th><td>010-2222-2222</td>
+            </tr>            
+      
+            <tr>
+                <th>주소</th><td colspan="3"></td>
+            </tr>
+            <tr>
+                <th>자기소개</th><td colspan="3"></td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
+    
+    <table border="1px" style="border-collapse: collapse; line-height: 50px;"> 
+        <caption>[문제]</caption>
+ 
+        <colgroup>
+            <col width="100px" />
+            <col width="100px" />
+            <col width="100px" />
+            <col width="100px"/>
+          </colgroup>
+        <tbody>
+            <tr>
+                <td rowspan="3">일</td><td colspan="3">이</td>
+            </tr>            
+            <tr>
+                <td colspan="2">삼</td><td rowspan="3">사</td>
+        </tr>
+            <tr>
+                <td>오</td><td>육</td>
+            </tr>
+            <tr>
+                    <td colspan="4">칠</td>
+            </tr>
+        </tbody>
+
+
+    </table>
+
+
+
+
+
+
+</body>
+</html>

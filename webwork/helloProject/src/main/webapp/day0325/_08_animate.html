@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+    #one{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+        border: 1px solid gray;
+    }
+</style>
+
+</head>
+<body>
+
+    <img src="../image/star5.png" alt="" id="img1" width="100">
+    <hr>
+    <div id="one"></div>
+
+
+<script>
+
+    //animate 의 필수요소 slow, fast, 2000(구체적인시간) 이런식으로 쓸수있다    
+    //최소 조건만 쓴것 'slow', 'fast', 2000 이런식
+    //$("img#one").animate({width:'200px', opacity:'0.5'},2000) 
+    $("#img1").animate({width:'200px', opacity:'0.5'},'slow');
+
+    // animate 요소 full 로 다쓴거
+    // 속성, 시간당 속도함수 , 콜백함수까지 
+    $("#img1").animate({width:'100px', opacity:'1'},'slow','linear',function () {
+        
+        //애니메이션 끝난 후 처리할 일들
+        //alert("애니메이션 끝났어요");        
+        $(this).after("<b>The END</b>");
+    });
+
+    $("#one").animate({legt:"+=60"},2000).animate({"border-width":"10px"},2000)
+             .animate({"width":"120px"},2000).animate({"heghit":"120px"},2000);
+              
+</script>   
+</body>
+</html>

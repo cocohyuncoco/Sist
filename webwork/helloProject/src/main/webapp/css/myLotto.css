@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+div.lotto{
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;    
+    margin-bottom: 22px;
+    border: 3px solid #ff0055;
+    background-color: #eb90ae;
+    border-radius: 100px;
+    width: 100px; height: 100px;
+    line-height: 100px;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    box-shadow: 5px 5px gray; /*x,y,blur,color*/
+}
+.hr{
+    clear: both; /*float 속성해제*/
+}
+
+.btna{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+}
+
+#view{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    width: 800px;
+    height: 200px;
+    border: 1px solid gray;
+}
+

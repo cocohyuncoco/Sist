@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+    #photo{
+        position: absolute;
+        top: 150px; left: 500px;
+        width: 400px; height: 500px;
+        border: 10px groove pink;
+    }
+    #btnRandom{
+        margin-left:  400px;
+        width: 80px; height: 80px;
+
+    }
+</style>
+<script>
+
+    window.onload=function(){
+
+        //배열에 여러개 이미지 넣기
+        let imgarr = new Array();
+        
+        imgarr.push("../image/f1.png");
+        imgarr.push("../image/f2.png");
+        imgarr.push("../image/f3.png");
+        imgarr.push("../image/f4.png");
+        imgarr.push("../image/f5.png");
+        imgarr.push("../image/f6.png");
+        imgarr.push("../image/f7.png");
+        imgarr.push("../image/f8.png");
+        imgarr.push("../image/f9.png");
+        imgarr.push("../image/f10.png");
+
+          //초기이미지를 요소값 얻어서 랜덤하게 넣기
+        let photo = document.querySelector("#photo");
+        
+        //0~9 사이 난수값 얻기
+        let idx = parseInt(Math.random()*10);
+        photo.setAttribute("src",imgarr[idx]);
+        
+        //버튼 클릭시 랜덤이미지 나오게
+        document.getElementById("btnRandom").onclick=function() {
+        let num = parseInt(Math.random()*10);
+        photo.setAttribute("src",imgarr[num]);
+    }
+    }
+
+  
+</script>
+</head>
+<body>
+
+    <input type="image" src="../image/f12.png" id="btnRandom" value="이미지변경">
+    <marquee behavior="slide" direction="left" width="500" >
+        <img src="../image/yesel.jpg" alt="" width="50">
+        <b>왼쪽 버튼을 누르면 이미지가 바뀝니다</b>
+    </marquee>
+ 
+
+    <img srs="" alt="" id="photo">
+
+
+</body>
+</html>

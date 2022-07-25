@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+    Q. 꽃을 클릭하면 div에 꽃사진 나오게
+       스누피 클릭하면 div에 스누피 나오게
+       과일 클릭하면 div에 과일 나오게
+-->
+<style>
+    div#result{
+        max-width: 150px;
+       
+        }
+</style>
+</head>
+<body>
+
+    <button type="button" onclick="btnOne()">꽃</button>
+    <button type="button" onclick="btnTwo()">스누피</button>
+    <button type="button" onclick="btnThree()">과일</button>
+    <button type="button" onclick="btninit()">이미지삭제</button>
+
+    <div id="result">
+     
+    </div>
+
+<script>
+
+    let r =  document.getElementById("result");
+
+    function btnOne() {
+        let f = confirm("꽃을 출력할까요?");
+
+        if (f) {           
+            r.innerHTML+="<img src='../image/f1.png'>"
+           }
+    }
+
+    function btnTwo() {
+        let f = confirm("스누피를 출력할까요?");
+
+        if (f) {           
+            r.innerHTML+="<img src='../image/s3.JPG'>"
+           }
+    }
+
+    function btnThree() {
+        let f = confirm("과일을 출력할까요?");
+
+        if (f) {           
+            r.innerHTML+="<img src='../image/f15.png'>"
+           }
+    }
+
+    function btninit() {
+        r.innerHTML="";
+    }
+</script>
+</body>
+</html>

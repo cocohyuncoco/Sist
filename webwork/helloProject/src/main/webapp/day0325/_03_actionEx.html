@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+
+    #msg{
+        font-size: 2em;
+        position: absolute;
+        top: 150px; left: 100px;
+    }
+    #img{
+        position: absolute;
+        left: 500px; width: 150px;        
+    }
+
+    button{
+        width: 100px; height: 30px;
+    }
+</style>
+
+</head>
+<body>
+
+    <button type="button" id="btn1">hide</button>
+    <button type="button" id="btn2">show</button>
+    <button type="button" id="btn3">toggle</button>
+    <br>
+
+    <button type="button" id="btn4">slideUp</button>
+    <button type="button" id="btn5">slideDown</button>
+    <button type="button" id="btn6">slideToggle</button>
+    <br>
+
+    <button type="button" id="btn7">fadeOut</button>
+    <button type="button" id="btn8">fadeIn</button>
+    <button type="button" id="btn9">fadeToggle</button>
+    <button type="button" id="btn10">fadeTo</button>
+    <br>
+
+    <div id="msg">Have a Nice Day!!
+        <img src="../image/f12.png" alt="" id="img">
+    </div>
+
+
+    <script>
+
+        $("#btn1").click(function () {
+             //사라진다
+            $("#img").hide();
+            $("#msg").hide();           
+        });
+
+        $("#btn2").click(function () {
+            //보여진다
+            $("#img").show('slow');
+            $("#msg").show('slow');
+        });
+
+        $("#btn3").click(function () {
+            //한번 클릭시 사라지고 한번 또 클릭시 보여짐
+            $("#img").toggle();
+            $("#msg").toggle();
+        });
+
+        $("#btn4").click(function () {
+            //사라진다
+            $("#img").slideUp();
+            $("#msg").slideUp();
+        });
+
+        $("#btn5").click(function () {
+            //보여진다
+            $("#img").slideDown('slow');
+            $("#msg").slideDown('slow');
+        });
+
+        $("#btn6").click(function () {
+            //한번 클릭시 사라지고 한번 또 클릭시 보여짐
+            $("#img").slideToggle('slow');
+            $("#msg").slideToggle('slow');
+        });
+
+        $("#btn7").click(function () {
+            //사라진다
+            $("#img").fadeOut('slow');
+            $("#msg").fadeOut('slow');
+        });
+
+        $("#btn8").click(function () {
+            //보여진다
+            $("#img").fadeIn('slow');
+            $("#msg").fadeIn('slow');
+        });
+
+        $("#btn9").click(function () {
+            //한번 클릭시 사라지고 한번 또 클릭시 보여짐
+            $("#img").fadeToggle('slow');
+            $("#msg").fadeToggle('slow');
+        });
+
+        $("#btn10").click(function () {
+            //3초동안 반투명이 된 후 함수실행
+            $("#msg").fadeTo(3000, 0.5, function () {
+                $("#msg").css("border","10px dotted orange")
+            });
+            //2초동안 반투명이 된 후 함수실행
+            $("#img").fadeTo(2000, 0.5, function () {
+                $(this).css("opacity","1");
+            });
+        });
+    </script>
+</body>
+</html>

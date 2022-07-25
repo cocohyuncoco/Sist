@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+
+    li{
+        list-style: none;
+    }
+    div.wall{
+        width: 800px; height: 600px;
+        margin: 100px auto;
+        background-color: #999;
+        position: relative;
+        border-radius: 5px;
+        border: 5px solid #333;
+    }
+
+    h1.title{
+        position: absolute;
+        top: 80px; right: 6px;
+        width: 150px; 
+        font: 40px "Single Day",sans-serif;
+        }
+    
+    ul.list{
+        position: absolute;
+        bottom: 0; left: 0;
+        background-color: rgb(0 0 0 / 26%);
+        width: 100%; height: 100px;
+        border-top: 1px solid #666;
+     
+    }
+    ul.list > li{
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px; 
+        width: 70px; height: 70px;
+        border: 5px solid #333;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    ul.list > li > img{
+        width: 100%;
+    }
+
+    /*제이쿼리에서 사용할 클래스*/
+    ul.list > li.active{
+        border-color: rgb(255, 255, 255);
+    }
+</style>
+<script>
+
+    $(function () {
+       
+        $("ul.list > li > img").click(function () {
+
+            //현재 클릭한 이미지의 부모 li 에다가 active 클래스 추가해주기
+            $(this).parent().addClass("active");
+
+            //부모태그의 형제태그에 들어어있는 active는 제거
+            $(this).parent().siblings().removeClass("active");
+
+            //클릭한 이미지의 title속성을 얻는다
+            let addtitle = $(this).attr("title");
+            //h1에 있는 얻은 title속성을 적용시킨다
+            $("h1.title").html(addtitle);
+
+            //클릭한 이미지의 src
+            let bgsrc = $(this).attr("src");
+            //console.log(bgsrc);
+            $("div.wall").css("background-image","url("+bgsrc+")");
+        });
+
+        
+
+    });
+</script>
+</head>
+<body>
+
+    <div class="wall">
+        <h1 class="title">Select Page</h1>
+        <img src="../image/cover/cover2.png" alt="">
+        <ul class="list">
+            <li><img src="../image/cover/b01.png" alt="" title="Pear"></li>
+            <li><img src="../image/cover/b02.png" alt="" title="ChecRer"></li>
+            <li><img src="../image/cover/b03.png" alt="" title="Bamboo"></li>
+            <li><img src="../image/cover/b04.png" alt="" title="School"></li>
+            <li><img src="../image/cover/b05.png" alt="" title="refoot"></li>
+            <li><img src="../image/cover/b06.png" alt="" title="forest"></li>
+        </ul>
+    </div>
+
+</body>
+</html>

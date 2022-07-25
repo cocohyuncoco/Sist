@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+    div.wall{
+        position: absolute;
+        width: 200px; height: 500px;
+        background-image: url(../image/bg2.png);
+        z-index: 2;
+    }
+    #img1{
+        position: absolute;
+        left: 120px; top: 100px;
+        width: 150px; height: 200px;
+        z-index: 1;
+    }
+    h2{
+       margin-bottom: 20px;
+    }
+    h2,#gun{
+        position: absolute;
+        top: 600px;
+    }
+    div#gun{
+        background: url(../image/gun.png) no-repeat 0 0/150px;
+        width: 300px;
+        height: 126px;
+        margin-top: 50px;
+      
+    }
+    div#gun:active{
+        background: url(../image/gun.png) no-repeat 0 100%/150px;
+    }
+</style>
+<script>
+
+    $(function () {
+  
+        //3번째함수는 너비가 0이되면 호출
+        $("#img1").click(function () {
+            $(this).animate({width:'0px'},'slow', function () {
+                $(this).animate({width:'150px'},'slow');
+            });
+       });
+
+       //3초에 한번씩 이미지 클릭효과..trigger
+       setInterval(function () {
+          $("#img1").trigger("click");
+       },3000);
+
+       
+    });
+
+</script>
+</head>
+<body>
+
+    <div class="wall"> </div>
+    <img src="../image/03.png" alt="미니언즈" id="img1">
+   
+    <hr>
+
+    <h2>전체 이미지중 일부만 나타내기</h2>
+    <div id="gun"></div>
+    
+</body>
+</html>

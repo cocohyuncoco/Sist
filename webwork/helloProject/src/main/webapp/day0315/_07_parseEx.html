@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+    //암시적 형변환 : 자바스크립트 컴파일러에 의한 자동형변환
+    var result=1+"2";
+    document.write("<h1>result="+result+"<br></h1>");
+
+    var result2="2"+true;
+    document.write("result2="+result2+"<br>");
+
+    //명시적 형변환 : 
+    var test="300.1";
+    document.write(parseInt(test)+10+"<br>");
+
+    var test2 ="200";
+    document.write(parseInt(test2)+10+"<br>");
+
+    var test3 = "400.1";
+    document.write(parseFloat(test3)+10+"<br>")
+
+    
+</script>
+</body>
+</html>

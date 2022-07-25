@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+    div{
+        border:1px solid gray;
+        width: 500px;
+        margin-bottom: 10px;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+    <h3>폼태그 연습 #1</h3>    
+    <div>
+        <b>아이디</b>
+        <input type="text" width="100">
+        <br>
+        <b>비밀번호</b>
+        <input type="password" width="100">
+        <br>
+    </div>
+
+    <script>
+        //포커스가 갈 경우 배경색
+        $("input:text,input:password").focus(function () {
+            $(this).css("background-color","yellow");
+        });
+        //벗어나면 다시 흰색
+        $("input:text,input:password").blur(function () {
+            $(this).css("background-color","white");
+        });
+     </script>
+
+
+    <h3>폼태그 연습 #2</h3>    
+    <div>
+        <input type="checkbox" id="cbk">운전면허 &nbsp;&nbsp;
+        <button type="button" id="btn1">확인</button> &nbsp;&nbsp;
+        <span></span>
+    </div>
+    <script>
+        $("#btn1").click(function () {
+
+            let a =$("#cbk").val(); //무조건 on(value 미지정시)
+            let b =$("#cbk").is(":checked"); //체크상태에 따라서 true/falus
+
+            $("span:eq(0)").html(a+","+b);
+
+        });
+    </script>
+
+
+
+    <h3>폼태그 연습 #3</h3>    
+    <div>
+        <h3>당신의 주소 지역은?</h3>
+        <input type="radio" name="city" id="city" value="서울시">서울시
+        <input type="radio" name="city" id="city" value="경기도">경기도
+        <input type="radio" name="city" id="city" value="부산시">부산시
+        <input type="radio" name="city" id="city" value="광주시">광주시
+        <input type="radio" name="city" id="city" value="제주지">제주지
+        <br>
+        <button type="button" id="btn2">확인</button>&nbsp;&nbsp;
+        <span></span>
+    </div>
+    <script>
+        $("#btn2").click(function () {
+            let data = $("input[name='city']:checked").val(); //체크된값 가져오기
+            $("span:eq(1)").html(data);
+             
+        });
+    </script>
+
+
+    <h3>폼태그 연습 #4</h3>    
+    <div>
+        <h3>구현가능한 컴퓨터 언어는?</h3>
+        <input type="checkbox" name="comp" value="java">java
+        <input type="checkbox" name="comp" value="oracle">oracle
+        <input type="checkbox" name="comp" value="html">html
+        <input type="checkbox" name="comp" value="javascript">javascript
+        <input type="checkbox" name="comp" value="jquery">jquery
+        <br>
+        <button type="button" id="btn3">가능언어 출력</button>
+        <br>
+        <span></span>
+    </div>
+    <script>
+        $("#btn3").click(function () {
+
+            //체크된 갯수
+            let lang = $("input[name='comp']:checked").length; //체크된값 가져오기
+            let s = "체크갯수: "+lang;
+
+            if (lang==0) {
+               s += "<br>가능한 언어 없음";
+            }else{
+               s += "<br>";
+               $("input[name='comp']:checked").each(function (i, element) {
+                   s+=$(this).val()+"&nbsp;";
+               });
+            }
+            
+            $("span:eq(2)").html(s);
+        });
+    </script>
+
+
+    <h3>폼태그 연습 #5</h3>    
+    <div>
+        <select name="" id="selone">
+            <option value="red">빨강</option>
+            <option value="blue">파랑</option>
+            <option value="yellow">노랑</option>
+            <option value="orange">오렌지</option>
+        </select>
+        <br>
+        <button type="button" id="btn4">색상 가져오기</button>
+        <span></span>
+    </div>
+    <script>
+        $("#btn4").click(function () {
+             
+            let selText = $("#selone option:selected").text();
+            let selVal = $("#selone").val();
+
+            let s = "<br>선택 text: "+selText;
+            s += "<br>선택 val: "+selVal;
+
+            s = "<b style='color:"+selVal+"'>"+selText+"</b>";
+
+            $("span:eq(3)").html(s);
+            
+        });
+    </script>
+
+</body> 
+</html>

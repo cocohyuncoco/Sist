@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+
+    div{
+       position: absolute;
+       width: 300px; height: 150px;
+       font-family: 'Song Myung',sans-serif; 
+    }
+
+    button{
+        font-size: 24px !important;
+        margin-left: 10px;
+    }
+
+    div#one{
+        left: 50px; top: 100px;
+    }
+
+    div#two{
+        left: 250px; top: 100px;
+    }
+    div#three{
+        left: 500px; top: 100px;
+    }
+    div#three h3:hover{
+        cursor: pointer;
+        background-color: orange;
+    }
+    div#result{
+        left: 100px; top: 400px;
+        font-size:2em;
+        text-align:center;
+        width:700px;
+        border:3px solid gold;
+        border-radius: 30px;
+        padding: 20px 0 0 0;
+    }
+
+  
+</style>
+<script>
+    $(function () {
+
+        let theater="", movie=""; //극장, 상영작
+
+        //one에 버튼추가
+        let btn1 = "<button type='button' id='btn1' class='btn btn-info'>영화예매</button>";
+        $("#one").append(btn1);
+
+        //버튼1 이벤트
+        $("#btn1").click(function () {
+          let btn2 = "<button type='button' id='btn2' class='btn btn-danger'>극장선택</button>";
+          btn2 +=  "<button type='button' id='btn3' class='btn btn-info'>영화선택</button>";
+          $("#two").html(btn2);
+        });
+
+        //버튼2는 나중에 동적생성임으로 on 이벤트
+        $(document).on("click", "#btn2", function () {
+            let s = "<h3 class='theater'>CGV 강남점</h3>"
+            s += "<h3 class='theater'>MEGABOX 죽전점</h3>";
+            s += "<h3 class='theater'>CGV 기흥점</h3>";
+            s += "<h3 class='theater'>MEGABOX 논현점</h3>";
+
+            $("#three").html(s);
+        });
+
+        $(document).on("click", "#btn3", function () {
+           let movie = "<h3 class='movie'>닥터 스트레인지</h3>"; 
+           movie += "<h3 class='movie'>스파이더맨</h3>"; 
+           movie += "<h3 class='movie'>어벤져스</h3>"; 
+           movie += "<h3 class='movie'>아이언맨</h3>"; 
+
+           $("#three").html(movie);
+        });
+
+        //영화관이나 제목 클릭시 이벤트
+       
+        $(document).on("click", "#three h3", function () {
+            //클릭한 h3 태그에서 클래스를 얻는다. 
+            let select =$(this).attr("class");
+
+            if (select=='theater') {
+                theater = "극장명 : "+$(this).text();
+            }else{
+                movie = "영화제목 : "+$(this).text();
+            }
+
+            $("#result").html(theater+"<br>"+movie);
+
+        });
+        
+        
+
+    });//제이쿼리 끝
+</script>
+</head>
+<body>
+
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="result"></div>
+
+
+</body>
+</html>

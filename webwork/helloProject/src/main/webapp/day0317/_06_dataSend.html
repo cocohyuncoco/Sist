@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    table{
+        border: 2px solid firebrick;
+    }
+    th, td{
+        border: 1px dotted palevioletred;
+    }
+</style>
+<script>
+
+    function datasend() {
+        
+        //현재 열려있는곳이 opener 
+        //입력후 열려있는곳으로 데이터 보내기
+        opener.frm.name.value = frm.name.value;
+        opener.frm.addr.value = frm.addr.value;
+        opener.frm.hp.value = frm.hp.value;
+
+        //윈도우 닫기
+         window.close();
+    }
+
+
+</script>
+</head>
+<body>
+    <form action="#" name="frm">
+
+        <table border="1">
+            <tr>
+                <th width="100">이름</th>
+                <td width="200">
+                    <input type="text" name="name" id="" required size="12"> 
+                </td>
+            </tr>
+    
+            <tr>
+                <th>주소</th>
+                <td>
+                    <input type="text" name="addr" id="" required size="20"> 
+                </td>
+            </tr>
+    
+            <tr>
+                <th>연락처</th>
+                <td>
+                    <input type="text" name="hp" id="" required size="14"> 
+                </td>
+            </tr>
+    
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="데이터 전송" onclick="datasend()">
+                </td>
+                
+            </tr>
+        </table>    
+    
+    
+    </form>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+
+</style>
+
+</head>
+<body>
+
+    <!--
+        attr("속성")
+        attr("속성","값")
+        eq(0) : 인덱스를 의미, 첫번째 인덱스를 의미한다
+
+    -->
+    
+    <div class="a">
+        <div>Happy</div>
+        <div>Hello</div>
+    </div>
+
+
+    <div class="b">
+        <div>Java</div>
+        <div>Oracle</div>
+        <h3>b클래스 아래의 h3입니다</h3>
+        <img src="" alt="">
+    </div>
+
+
+    <div class="c">
+        <div>오늘은 수요일 입니다</div>
+        <div>제이쿼리 시작하는날</div>
+        <b>c클래스 안의 b태그 입니다</b><br>
+        <img src="" alt="">
+    </div>
+
+    <script>
+
+        //1. div 클래스가 a 인 태그 아래있는 모든 div안에 있는 글자색을 blue로 변경 글꼴을 Impact로 변경 사이즈를 40px 변경
+        $("div.a > div").css({
+            "color":"blue",
+            "font-family":"Dongle",
+            "font-size":"40px"
+        })
+        
+        //2.div중에서 클래스가 b인 바로아래 div태그의 winth 를 300 border를 알아서 변경
+        $("div.b > div").css({
+            "width":"300px",
+            "border":"dotted red"
+        })
+
+        //3. div.b 바로 아래 img를 변경하고 width를 200px 로 변경
+        $("div.b > img").attr("src","../image/f3.png").css("width","200px");
+
+        //4. div클래스가 c인 아래 b태그의 글자색과 배경색 글자크기 변경
+        $("div.c > b").css({
+            "color":"green",
+            "background-color":"yellow",
+            "font-size":"50px"
+        });
+        //5.div클래스가 c인 img아래 bts사진 넣고 동그랗게 나오게
+        $("div.c > img").attr("src","../image/17.jpg").css({
+            "border-radius":"100%",
+            "width":"200px",
+            "height":"200px"
+
+        });
+
+        //6. 모든 h3 배경색을 magenta, 글자색을 #fff, 너비 300px, border굴게 아무모양이나
+        $("h3").css({
+            "background-color":"magenta",
+            "color":"#fff",
+            "width":"300px",
+            "border":"5px solid #000"
+        });
+
+
+        $("div.c > div").eq(0).css({
+            "width":"300px",
+            "background-color":"pink",
+            "color":"#fff",
+            "font-size":"30px"
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table style="width: 100%; border-collapse: collapse; border:1px solid black;">
+
+    <caption><b>전체 구구단</b></caption>
+    <tr style="height: 30px; background-color: aquamarine;">
+        <script>
+            for (let dan=2; dan<=9; dan++) {
+                var s = "<th>"+dan+"단</th>";               
+                document.write(s);
+            }
+        </script>
+    </tr>
+     <script>
+            for (let i=1; i<=9; i++) 
+            {
+                document.write("<tr height='30'>");            
+                for (let dan=2; dan<=9; dan++) 
+                {   
+                    document.write("<td align='center'>"+dan+"X"+i+"="+dan*i+"</td>");            
+                }
+                document.write("</tr>"); 
+            }
+        </script>
+    
+</table>
+</body>
+</html>

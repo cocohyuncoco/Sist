@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 이미지출력 이라는 버튼생성후 버튼 클릭시 '출력할 이미지의 인덱스 번호를 입력해주세요 
+        0번 누르면 0번 이미지 나오게
+        배열 범위 벗어나면 div에 해당번호의 이미지는 없습니다 -->
+<style>
+     
+     #result{
+         width: 400px;
+     }
+</style>
+</head>
+<body>
+
+    <button type="button" onclick="writeImg()">이미지출력</button>
+    <div id="result"></div>
+
+<script>
+
+    let imgarr = new Array();
+    // imgarr[0] ="../image/김치찌개.png";
+    // imgarr[1] ="../image/부대찌개.png";
+    // imgarr[2] ="../image/순두부.png";
+    // imgarr[3] ="../image/치즈.png";
+    // imgarr[3] ="../image/you.jpg";
+
+    imgarr.push("../image/김치찌개.png")
+    imgarr.push("../image/부대찌개.png")
+    imgarr.push("../image/순두부.png")
+    imgarr.push("../image/치즈.png")
+    imgarr.push("../image/you.jpg")
+
+    let r = document.getElementById("result");
+
+    function writeImg() {
+
+        let idx = prompt("출력할 번호입력","0~4 안에서 입력");
+
+         if (idx<0 || idx>4) {
+             //0보다 작거나 4보다 크면
+             r.innerHTML="해당번호의 이미지는 없습니다";
+         }else{
+            r.innerHTML="<img src='"+imgarr[idx]+"'>"
+         }
+         
+    }
+
+</script>
+</body>
+</html>

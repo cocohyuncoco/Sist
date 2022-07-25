@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+      window.onload=function () {
+
+
+      let img = document.getElementById("img1");
+
+      //김태희
+        document.getElementById("btn1").onclick=function(){
+
+            img.setAttribute("src","../image/hee.jpg")
+          }
+
+          //박신혜
+        document.getElementById("btn2").onclick=function(){
+
+        img.setAttribute("src","../image/soojee.jpg")
+        }
+
+        //수지
+        document.getElementById("btn3").onclick=function(){
+
+        img.setAttribute("src","../image/shin.jpg")
+        }
+
+        //작게버튼
+        document.getElementById("btn4").onclick=function(){
+
+            let w =img.getAttribute("width");
+            console.log(w);
+            w-=10;
+            img.setAttribute("width",w);
+            
+        }
+        //크게버튼
+        document.getElementById("btn5").onclick=function(){
+
+            let w =parseInt(img.getAttribute("width"));
+            console.log(w);
+            w+=10;
+            img.setAttribute("width",w);
+
+            }
+
+    }
+    
+
+</script>
+</head>
+<body>
+
+    <button id="btn1">김태희</button>
+    <button id="btn2">수지</button>
+    <button id="btn3">박신혜</button>
+    <br>
+    <button id="btn4">점점작게</button>
+    <button id="btn5">점점크게</button>
+    <hr>
+    <img src="../image/beauty4.jpg" alt="" width="300" id="img1" border="2">
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+    a{
+        background-color: cyan;
+        cursor: pointer;
+        border: 3px groove gray;
+    }
+    div{
+        width: 300px; height: 300px;
+        border: 1px solid gray;
+        margin-top: 30px;
+    }
+    div.a{
+        font-size: 2em;
+        font-family: '궁서체',sans-serif;
+        color:red;
+    }
+
+    div.b{
+        border: 10px groove gold;
+        border-radius: 30px;
+        box-shadow: 5px 5px 5px tomato;
+    }
+
+    div.c{
+        background: url(../image/beauty2.jpg)no-repeat center / 150px 150px;
+    }
+</style>
+</head>
+<body>
+
+    <a>클래스 a만 추가</a>
+    <a>클래스 b만 추가</a>
+    <a>클래스 a,b만 추가</a>
+    <a>클래스 c만 추가</a>
+    <a>클래스 d만 추가</a>
+
+    <div>제이쿼리</div>
+
+    <script>
+        //첫번쨰 누르면 a누르면 a클래스만 추가
+        $("a:eq(0)").click(function () {
+            $("div").removeClass("b c").addClass("a");
+        });
+        //2번쨰 a를 누르면 b만 추가 a,c는 제거
+        $("a:eq(1)").click(function () {
+            $("div").removeClass("a c").addClass("b");
+        });
+        //3번째 a를 누르면 a,b는 추가 c만삭제
+        $("a:eq(2)").click(function () {
+            $("div").removeClass("c").addClass("a b");
+        });
+        //4번째a를 누르면 c만 추가 a,b제거
+        $("a:eq(3)").click(function () {
+            $("div").removeClass("a b").addClass("c");
+        });
+        //5번째 버튼 누르면 a,b,c모두 추가
+        $("a:eq(4)").click(function () {
+            $("div").addClass("a b c");
+        });
+    </script>
+
+</body>
+</html>

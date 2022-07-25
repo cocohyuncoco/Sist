@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+
+    div.sist{
+        position: absolute;
+        left: 100px; top: 100px;
+        width: 250px; height: 220px;
+        border: 2px groove gray;
+        border-radius: 30px; 
+    }
+
+    ul li{list-style: none;}
+
+    ul.menu>li{
+        font: 2em/2em 'Black Han Sans',sans-sefif;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    ul.submenu>li{
+        font: 22pt 'Nanum Pen Script',sans-sefif;
+    }
+</style>
+<script>
+
+    $(function () {
+        
+        //모든 서브메뉴 숨기기
+        $("ul.submenu").hide();
+
+        //이벤트_메뉴 한번 누르면 서브 메뉴 펼쳐지고 두번 누르면 서브메뉴 접혀짐
+        $("ul.menu > li").click(function () {
+            $(this).find('ul.submenu').toggle('slow');
+            //해당메뉴의 서브메뉴를 제외한 다른메뉴의 서브메뉴는 숨기기
+            $(this).siblings().find('ul.submenu').hide();
+        })
+    });
+
+    
+
+</script>
+</head>
+<body>
+
+    <div class="sist">
+        <ul class="menu">
+            <li>File
+                <ul class="submenu">
+                    <li>new</li>
+                    <li>Openfile</li>
+                    <li>save</li>
+                    <li>Rename</li>
+                </ul>
+            </li>
+
+            <li>Edit
+                <ul class="submenu">
+                    <li>cut</li>
+                    <li>copy</li>
+                    <li>find</li>
+                    <li>add</li>
+                </ul>
+            </li>
+
+            <li>Help
+                <ul class="submenu">
+                    <li>search</li>
+                    <li>tip</li>
+                    <li>check</li>
+                    <li>about</li>
+                </ul>
+            </li>
+
+
+
+
+
+        </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+    #time{
+        font-size: 2em; /*2배*/
+        margin-left: 100px;
+        font-weight: bold;
+        font-family: 'Song Myung', serif;;
+     }
+    #myimg{
+        position: absolute;       
+    }
+</style>
+
+<script>
+    let xpos=200;
+    let ypos=350;
+    let myimg;
+    window.onload=function(){
+                
+            writetime();
+            
+            //1초마다 시간 다시 출력
+            setInterval(function () {
+                writetime();
+            }, 1000);
+
+            //이미지 딱한번 위치변경
+            myimg=document.getElementById("myimg");
+            // myimg.style.left=xpos+"px";
+            // myimg.style.top=ypos+"px";
+            // 적용된거 확인 후 주석
+
+            //5초뒤 딱한번 
+            setTimeout(function () {
+                myimg.style.left=xpos+"px";
+                myimg.style.top=ypos+"px";
+            }, 5000);
+
+
+
+        }
+
+        function writetime() {
+            let date = new Date();
+        
+        let h = date.getHours(); //시
+        let m = date.getMinutes(); //분
+        let s = date.getSeconds(); //초
+
+        //  let time = h+":"+m+":"+s;
+        //1자리 숫자일때 앞에 0붙이기
+        let time = h+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s); //삼항조건 (단순한 출력문에 굉장히 많이쓰임)
+            
+        document.getElementById("time").innerHTML=time; //#time 에 접근
+        }
+
+</script>
+</head>
+<body>
+
+    <h2>setTimeOut과 setInterval에 대한 공부</h2>
+    <div id="time"></div>
+    <img src="../image/f10.png" alt="" id="myimg" width="100">
+</body>
+</html>

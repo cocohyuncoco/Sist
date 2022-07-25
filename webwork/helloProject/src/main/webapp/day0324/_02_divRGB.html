@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+</head>
+<body>
+    <div>0</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <span></span>
+
+    <script>
+
+        $("div").css({
+            "width":"120px",
+            "height":"120px",
+            "border":"2px solid gray",
+            "float":"left",
+            "font-size":"20px",
+            "text-align":"center",
+            "line-height":"120px",
+            "cursor":"pointor"
+        });
+
+        //색상표 출력할곳
+        $("span").css("font-size","20px");
+
+        //div 크기를 일정하게 지정한후 랜덤하게 색상을 만들어 배경색을 넣어준다
+         //alert($("div").length);
+        for (let i = 0; i < $("div").length; i++) {
+         
+            //rgb색 얻기
+            r = parseInt(Math.random()*256);
+            g = parseInt(Math.random()*256);
+            b = parseInt(Math.random()*256);
+
+            let color = "rgb("+r+","+g+","+b+")";
+            
+            $("div").eq(i).css("background-color",color);
+
+       }
+
+       //각 div를 클릭할경우 해당 배경색 값을 얻어서 span 태그에 넣기
+
+       $("div").click(function () {
+            let spancolor =  $(this).css("background-color");   
+            $("span").text(spancolor); //html로 받을건지 text로 받을건지..
+            $("span").css("background-color", spancolor);
+       })
+
+    </script>
+</body>
+</html>

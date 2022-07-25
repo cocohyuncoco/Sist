@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+    window.onload=function(){
+
+        //버튼1
+        //1. id로 해당요소값 읽어오기
+        //변수로 준다음에 이벤트함수
+        btn1=document.getElementById("btn1");
+
+        //읽어온 객체에 이벤트부여
+        btn1.onclick=function() {
+            //myimg1.getAttribute("src");
+            //속성값 변경
+            myimg1.setAttribute("src","/helloProject/image/f4.png");
+            myimg2.setAttribute("src","../image/beauty2.jpg");
+
+            //1번 이미지 너비 변경
+            //css이용한변경
+            myimg1.style.width='100px';
+            myimg2.style.width='100px';
+        }
+
+
+
+        //버튼2
+        //변수 안주고 바로 함수
+        document.getElementById("btn2").onclick=function(){
+            myimg1.setAttribute("src","/helloProject/image/f10.png");
+            myimg2.setAttribute("src","../image/beauty3.jpg");
+        }
+
+        //버튼3, 원래대로 함수
+        //변수 안주고 바로 함수
+        
+        document.getElementById("btn3").onclick=function(){
+            myimg1.setAttribute("src","/helloProject/image/f7.png");
+            myimg2.setAttribute("src","../image/beauty1.jpg");
+        }
+    }
+
+</script>
+</head>
+<body>
+    
+    <h4>절대주소를 이용한 이미지</h4>
+    <img src="/webapp/image/f14.png" alt="" id="myimg1">
+    <hr>
+
+    <h4>상대주소를 이용한 이미지</h4>
+    <img src="../image/beauty1.jpg" alt="" id="myimg2">
+    <hr>
+
+    <input type="button" value="변경1" id="btn1">
+    <input type="button" value="변경2" id="btn2">
+    <input type="button" value="원래대로" id="btn3">
+
+</body>
+</html>

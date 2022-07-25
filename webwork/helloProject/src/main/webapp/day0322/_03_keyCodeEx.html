@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 처음 위치를 500,300에 두고 방향에 따라 10씩 이동하게 한다 -->
+<style type="text/css">
+#myimg{
+   position: absolute;
+}
+</style>
+
+<script type="text/javascript">
+   var myimg;
+   var x=400;
+   var y=200;
+
+   window.onload=function(){
+      
+      myimg=document.getElementById("myimg");
+      myimg.style.top=y+"px";
+      myimg.style.left=x+"px";
+   
+      //키보드 아스키코드 값 확인
+      //상 38 하 40 좌 37 우 39  엔터 13
+      window.onkeydown=function(e){
+         switch (e.keyCode) {
+         case 38:
+            y-=10;
+            myimg.style.top=y+"px";
+            break;
+         case 40:
+            y+=10;
+            myimg.style.top=y+"px";
+            break;
+         case 37:
+            x-=10;
+            myimg.style.left=x+"px";
+            break;
+         case 39:
+            x+=10;
+            myimg.style.left=x+"px";
+            break;
+         case 13:
+            x=500;
+            Y=300;
+            myimg.style.left=x+"px";
+            myimg.style.top=y+"px";
+            break;
+
+         default:
+            break;
+         }
+      }
+   }
+   
+   
+</script>
+</head>
+<body>
+<img alt="" src="../image/s1.JPG" id="myimg">
+</body>
+</html>

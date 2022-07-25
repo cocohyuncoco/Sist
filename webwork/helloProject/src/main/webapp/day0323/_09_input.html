@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+</head>
+<body>
+<!--
+    input[type=타입] 셀렉터를 구체적으로 쓰면 선택적으로 적용가능
+
+    1. input {background-color : yellow} : 전체배경 노랑
+    2. input [type='text']{boder:1px dotted gray;} : 텍스트 input만 테두리를 회색 점선으로
+    3. input [type='button'] {boder:1px solid red;} : 버튼 input만 테두리를 빨간 실선으로
+
+    text() - 선택요소의 텍스트 설정하거나 해당값 반환
+    html() - 선택요소의 컨텐츠 자체 설정하거나 해당값 반환
+    val() - 폼필드의 값을 설정하거나 해당값 반환
+-->
+
+    <h3>R, G, B 색상 입력하기</h3>
+    R: <input type="text" id="txtR" value="255">&nbsp;&nbsp;&nbsp;
+    G: <input type="text" id="txtG" value="0">&nbsp;&nbsp;&nbsp;
+    B: <input type="text" id="txtB" value="255">
+
+    <div></div>
+
+    <script>
+
+        $("input[type='text']").css({
+            "border":"2px solid gray",
+            "width":"100px",
+            "height":"30px",
+            "font-size":"20px"
+        });
+
+        let r = 255,g=0,b=255;
+        let color ="rgb("+r+","+g+","+b+")";
+
+        $("div").css({
+            "width":"400px",
+            "height":"200px",
+            "border":"5px solid gray",
+            "background-color":color,
+            "margin-top":"50px"
+        });
+
+        //R
+        $("#txtR").keyup(function () {
+            if (isNaN($(this).val())) 
+                return; //숫자가 아닐경우는 함수종료
+            r = $(this).val();
+            color="rgb("+r+","+g+","+b+")";
+
+            $("div").css("background-color",color);
+        });
+
+        //G
+        $("#txtG").keyup(function () {
+            if (isNaN($(this).val())) 
+                return; //숫자가 아닐경우는 함수종료
+            g = $(this).val();
+            color="rgb("+r+","+g+","+b+")";
+
+            $("div").css("background-color",color);
+        });
+
+        //B
+        $("#txtB").keyup(function () {
+            if (isNaN($(this).val())) 
+                return; //숫자가 아닐경우는 함수종료
+            b = $(this).val();
+            color="rgb("+r+","+g+","+b+")";
+
+            $("div").css("background-color",color);
+        });
+    </script>
+</body>
+</html>

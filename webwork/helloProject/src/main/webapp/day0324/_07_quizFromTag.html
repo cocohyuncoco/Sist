@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+    
+
+    hr{height: 5px;
+        background-color: darkblue;}
+
+    /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+</style>
+<script>
+
+    $(function () {
+      $("#btn").click(function () {  
+          
+          //색상값
+          let color = $("input[name='fcolor']:checked").val();
+          //alert(color);            
+          
+          //글꼴
+          let sel = $("#selFont option:selected").text();          
+          // alert(sel);  
+
+          $("#result").css({
+              "color":color,
+              "font-family":sel+",sans-serif",
+              "font-size":"20px"
+          });
+
+         
+          //이미지
+          s="";
+          $("input[name='imge']:checked").each(function(i, element){
+              
+              s += "<img src='../image/s"+$(this).val()+".JPG'>";
+
+          });
+
+            $("div.myimg").html(s);
+
+      });
+
+    });
+
+    
+  </script>
+</head>
+<body>
+
+    <h3>폼태그 문제</h3>
+    <div>
+        <h4>글자색</h4>
+        <input type="radio" name="fcolor" value="pink" checked>핑크
+        <input type="radio" name="fcolor" value="red">레드
+        <input type="radio" name="fcolor" value="green">그린
+        <input type="radio" name="fcolor" value="magenta">마젠타
+        <hr>
+        
+        <h4>글꼴</h4>
+        <select name="" id="selFont">
+            <option value="Black Han Sans">Black Han Sans</option>
+            <option value="Nanum Pen Script">Nanum Pen Script</option>
+            <option value="Single Day">Single Day</option>
+            <option value="Stylish">Stylish</option>
+            <option value="Song Myung">Song Myung</option>
+        </select>       
+        <hr>
+
+        <h4>체크된 이미지 출력</h4>
+        <input type="checkbox" name="imge" value="1">아이콘1
+        <input type="checkbox" name="imge" value="2">아이콘2
+        <input type="checkbox" name="imge" value="3">아이콘3
+        <input type="checkbox" name="imge" value="4">아이콘4
+
+        <br>
+        <button type="button" id="btn">선택한 값 모두 적용하기</button>
+
+        <hr>
+     </div>
+
+    <div id="result" style="margin-top: 50px; font-size:20px;">
+        여러분!! 오늘은 즐거운 목요일 입니다
+
+        <div class="myimg"></div>
+    </div>
+
+
+   
+
+
+</body>
+</html>

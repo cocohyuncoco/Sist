@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    #out{
+        position: absolute;
+        top: 50px; left: 10px;
+        border: 2px solid gray;
+        width: 300px; height: 200px;
+        padding: 10px 0 0 10px;
+        background-color: bisque;
+        font-size: 11pt;
+    }
+</style>
+
+<script>
+
+    var rnd;
+    var cnt=0; //10이상이면 실패 
+
+    window.onload = function() {
+        rnd=parseInt(Math.random()*100)+1; //1~100까지의 랜덤수발생
+    }
+
+    function check(su) {
+        
+        //1~100까지 입력해야 하며 경고창 띄우고 입력창 초기화
+        if (su<=0 || su>100) {
+            alert("잘못입력하였어요");
+            frm.num.value=' ';
+            return false;
+        }
+        
+        //난수와 비교해서 결과 출력..성공이미지
+        cnt++;
+        if (su>rnd) {
+             out.innerHTML += cnt+":"+su+"보다 작습니다<br>"
+        }else if (su<rnd) {
+            out.innerHTML += cnt+":"+su+"보다 큽니다<br>"
+        }else{
+            out.innerHTML = "<h4>축하합니다..정답은"+rnd+"입니다</h4>"
+            imge.src="../image/s1.JPG";
+            
+            return false;
+        }
+        //실패이미지
+        if (cnt>=10) {
+            out.innerHTML = "<h4>꽝 다음 기회에</h4>"
+            imge.src="../image/s1.JPG";
+
+            return false;
+        }
+        frm.num.value=''
+    }
+   
+</script>
+</head>
+<body>
+    <form action="#" name="frm" onsubmit="return false"> 
+        <b>숫자입력: </b>
+        <!-- 숫자 입력후 엔터 누르면 함수호출 하면서 값 전달 -->
+        <input type="text" name="num" size="5" onkeydown="if(event.keyCode==13) check(value)">
+    </form>
+
+    <div id="out">   </div>
+
+    <div style="position: absolute; top: 80px; left: 300px;">
+        <img src="" alt="" name="imge">
+    </div>
+</body>
+</html>

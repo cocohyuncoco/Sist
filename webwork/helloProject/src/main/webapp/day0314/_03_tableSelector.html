@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+    table{
+        border-collapse: collapse;
+    }
+
+    .tb1{width: 500px;
+        border: 3px groove gray;}
+
+    .tb2{
+        width: 400px;
+        border: 5px inset greenyellow;
+        }
+
+    /* > : 바로 아래태그를 의미 | 자식태그 */
+
+    .tb1>thead>tr>th{
+        height: 50px;
+        font-size: 1.2em;
+        border: 1px solid gray;
+        background-color: tomato;
+        color: #fff;
+    }
+    
+    .tbl>thead>tr{
+        border: 1px solid gray;
+        background-color: tomato;
+        color: #fff;
+    }
+
+    .tb1>tbody>tr{
+        height: 30px;        
+    }
+
+    .tb1>tbody>tr>td{
+        background-color: thistle;
+        color: #fff;
+        border: 1px solid blueviolet;
+    }
+
+
+    /* table 2 css*/
+    /* >: 바로아래태그 | 자식, 공백: 하위태그 | 자손 */
+
+    .tb2 th, .tb2 td{
+        border: 1px solid orange;
+    }
+
+    .tb2 thead tr{
+        height: 50px; color: red;
+    }
+
+    .tb2 img{width: 100px;}
+
+
+    /* td태그의 1번열의 배경색 */
+    .tb2 td:nth-child(1){
+        background-color: blanchedalmond;
+    }
+
+    .tb2 td:nth-child(3){
+        width: 100px;
+        color: blue;
+        text-align: right;
+    }
+    .tb2 td:first-child{}
+    .tb2 td:last-child{}
+    .tb2 td:nth-child(odd){/*홀수*/}
+    .tb2 td:nth-child(even){/*짝수*/}
+
+
+	/* 테이블 이벤트를 css에서 주기도한다*/
+    .tb1 tbody td:hover{
+        background-color: aquamarine;
+        color: black;
+    }
+
+    .tb1 thead th:hover{
+        background-color: orange;
+        color: #fff;
+    }
+
+   
+    
+
+</style>
+</head>
+<body>
+
+    <!-- 바로 아래 -> 자식 | 아래에 있는 모든것 -> 자손 -->
+
+    <table class="tb1">
+        <caption>[표 연습1]</caption>
+        
+        <thead>
+            <tr>
+                <th>이름</th><th>나이</th><th>주소</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>김민지</td> <td>22</td> <td>서울시 금천구</td>
+            </tr>
+            <tr>
+                <td>김은지</td> <td>54</td> <td>서울시 강남구</td>
+            </tr>
+            <tr>
+                <td>이민영</td> <td>27</td> <td>서울시 마포구</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+    <hr>
+
+    <table class="tb2">
+        <caption>[표 연습2]</caption>
+        
+        <thead>
+            <tr>
+                <th>과일이름</th><th>사진</th><th>가격</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>포도</td><td><img src="../image/f11.png" alt=""></td><td>2,000원</td>
+            </tr>
+            <tr>
+                <td>귤</td> <td><img src="../image/f12.png" alt=""></td> <td>3,000원</td>
+            </tr>
+            <tr>
+                <td>딸기</td> <td><img src="../image/f15.png" alt=""></td> <td>4,000원</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+</body>
+</html>

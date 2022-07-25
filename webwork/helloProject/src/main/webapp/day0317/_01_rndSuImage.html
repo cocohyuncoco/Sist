@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+    window.onload=function(){
+      setInterval(rndNum,3000);
+    }
+
+    function rndNum(){
+        
+        let su= new Array;
+        
+        for (let i= 0; i<3; i++) {
+          
+            su[i]=parseInt(Math.random()*9)+1;       
+          
+            //중복체크
+            for (let j= 0; j<i; j++) {
+                if (su[i]==su[j]) {
+                   i--;
+                   break;
+                }
+                
+            }
+        }
+
+        img1.src='../image/num/'+su[0]+'.gif';
+        img2.src='../image/num/'+su[1]+'.gif';
+	    img3.src='../image/num/'+su[2]+'.gif';
+
+    }
+    
+</script>
+</head>
+<body>
+
+    <img src="" alt="" name="img1">
+    <img src="" alt="" name="img2">
+    <img src="" alt="" name="img3">
+    
+
+
+</body>
+</html>

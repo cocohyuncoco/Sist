@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--숫자 5개가 3초마다 랜덤하게 나오도록 하세요
+    중복되지 않게 -->
+<script>
+
+    window.onload=function(){
+        //3초마다 랜덤 이미지 반복
+        setInterval(rnd,3000);
+    }
+    
+
+    function rnd(){
+        let num = new Array();
+        for (let i= 0; i<5; i++) {
+
+            num[i]=parseInt(Math.random()*9)+1;           
+            //중복체크
+            for (let j= 0; j<i; j++) {
+                if (num[i]==num[j]) {
+                    i--;
+                    break;
+                }
+                
+            } 
+        }
+
+        for (let i= 0; i<5; i++) {
+            imge[i].src='../num/'+num[i]+'.gif';            
+        }
+      
+    }
+
+
+
+</script>
+</head>
+<body>
+
+    <img src="" alt="" name="imge">
+    <img src="" alt="" name="imge">
+    <img src="" alt="" name="imge">
+    <img src="" alt="" name="imge">
+    <img src="" alt="" name="imge">
+
+</body>
+</html>

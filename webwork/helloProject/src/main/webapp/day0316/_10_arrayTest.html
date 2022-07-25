@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+    var food=["딸기","오렌지","수박","키위","바나나"];
+    
+    document.write("<br>배열테스트");
+    document.write("<br>0번: food"+food[0]);
+    document.write("<br>1번: food"+food[1]);
+    document.write("<br>2번: food"+food[2]);
+    document.write("<br>3번: food"+food[3]);
+    document.write("<br>4번: food"+food[4]);
+
+    document.write("<br>-----------------------------");
+    for (let i = 0; i< food.length; i++) {
+        document.write("<br>"+(i+1)+": food"+food[i]);
+    }
+
+</script>
+
+    <h2>10개의 난수 출력하기</h2>
+    <script>
+
+        let rnd;
+        for (let i=0; i<=10; i++) {
+            rnd=parseInt(Math.random()*10)+1
+            
+            document.write('<b>'+rnd+'<b>&nbsp;&nbsp;');
+            
+        }
+        document.write("<br>-----------------------------");
+
+    </script>
+
+
+    <h2>자바스크립트 배열선언 하는법</h2>
+    <script>
+
+        let arr = new Array();
+        arr[0] ="장미";
+        arr[1] ="후리지아";
+        arr[2] ="백합";
+        arr[3] ="다알리아";
+
+        for (let i= 0; i<arr.length; i++) {
+            document.write("<br>"+i+"->"+arr[i]);
+            
+        }
+
+    </script>
+
+    <h2>자바스크립트 초기값 지정배열_html 속성 추가하여 출력</h2>
+    <script>
+
+        let color = ["red","tomato","blue","pick","gray"];
+
+        /* 출력을 하는데 hello라는 문구를 5개의 color 별로 출력하시오 _font color 속성 이용할것*/
+        for (let i= 0; i<color.length; i++) {
+
+            document.write("<font color='"+color[i]
+            +"' size='50px'> hello </font><br>")
+
+        }
+
+    </script>
+
+    <h2>자바스크립트 2차원 배열선언 하는법</h2>
+    <script>
+
+        let arr2 = new Array;
+        arr2[0] = ['red','장미꽃'];
+        arr2[1] = ['green','난초'];
+        arr2[2] = ['yellow','튤립'];
+        arr2[3] = ['blue','수국'];
+
+        for (let i= 0; i< arr2.length; i++) {
+            
+                document.write("<font color='"+arr2[i][0]+"' size='8px'>"+
+                    arr2[i][1]+" </font><br>");
+            
+        }
+
+    </script>
+
+    <h2>배열 color별로 출력</h2>
+    <script>
+        let colors = ["red","tomato","blue","pick","gray"];  
+
+        for (let i= 0; i<colors.length; i++) {
+            document.write("<h1 style='color:" +colors[i]+";'>"+colors[i]+"</h1>");
+            
+        }
+
+    </script>
+
+    
+    <script>
+        
+        let flowers=new Array();
+        flowers.push('장미'); //배열마지막 요소 추가
+        console.log(flowers);
+
+        flowers.push('안개꽃');
+        flowers.push('코스모스');
+        flowers.push('벚꽃');
+
+        //출력
+        for (let i= 0; i<flowers.length; i++) {
+            document.write("<h1>"+flowers[i]+"</h1>");            
+        }
+
+        console.log(flowers);
+
+        flowers.pop(); //마지막 배열값 제거
+        flowers.pop();
+
+        flowers.shift(); //첫번째 요소 제거
+        flowers.unshift(); //배열의 처음에 요소에추가
+
+        //console.log(flowers);
+        //document.write(flowers);
+	
+	for (let i= 0; i<flowers.length; i++) {
+	            document.write("<h1>"+flowers[i]+"</h1>");            
+	        }
+
+</script>
+</body>
+</html>

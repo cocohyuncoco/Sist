@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+    /*
+    -html에서 띄울수 있는거 다 띄워주는 함수
+    -위에다가 넣는 이유는 가독성 때문에
+    -head 태그에 있을때는 얘네가 다 있음
+    */
+    window.onload=function(){
+    
+    var list ="";
+    
+    list += "<ul>";
+        list += "<li>Hello</li>";
+        list += "<li>javaScript</li>";
+    list += "</ul>";
+
+ 	list += "<ul> <li>Hello</li> <li>javaScript</li> </ul>";
+    //document.write(list); <-html의 구애를 안받는 단순 출력
+
+    //Html 문서의 body태그에 넣겠다
+    document.body.innerHTML=list;
+
+    //html문서는 순서에 따라 작동방법이 다르다
+    //head 태그에 넣으면 html에 있는 엘리먼트를 이용못한다 (body태그에 못 넣어줌)
+}
+</script>
+</body>
+
+</html>

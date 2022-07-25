@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+    #out{
+        font-family: 'Song Myung', serif;
+        font-weight: bold;
+        padding: 20px 20px;
+        width: 500px;
+        margin: 50px 0 0 0;
+        border: 1px solid gray;
+        }
+</style>
+<script>
+
+window.onload=function(){
+
+        let div = document.getElementById("out");
+        
+        document.getElementById("fontColor").onchange=function(){
+                
+                div.style.color=this.value;
+        }
+
+        document.getElementById("bgColor").onchange=function(){
+                //alert(this.value);
+                div.style.backgroundColor=this.value;
+        }
+
+        document.getElementById("selBorder").onchange=function(){          
+            
+             div.style.borderWidth=this.value+"px";
+        }
+
+        let fsize = document.getElementById("fsize");
+        fsize.innerHTML="현재 글꼴 크기는 40px 입니다";
+
+        //조건: 3px 씩 감소
+        //8px보다 작아지면 경고메세지 60px보다 커지면 경고메세지
+
+        //점점작게 btn1 
+        document.getElementById("btn1").onclick=function(){
+              let outsize = parseInt(out.style.fontSize);
+              //alert(outsize);
+              outsize-=3;
+
+              if (outsize<=8) {
+                      alert("더이상 줄일수 없어요");
+                      return;
+              }
+              out.style.fontSize=outsize+"px";
+              fsize.innerHTML="현재 글꼴 사이즈는 "+outsize+"px 입니다";
+        }
+
+        //점점크게 btn2
+        document.getElementById("btn2").onclick=function(){
+                let sizeup = parseInt(out.style.fontSize);
+                //alert(sizeup);
+
+                sizeup+=3;
+
+                if (sizeup>=60) {
+                        alert("더이상 커질수 없어요");
+                        return
+                }
+                
+
+                out.style.fontSize=sizeup+"px";
+
+                fsize.innerHTML="현재 글꼴 사이즈는 "+sizeup+"px 입니다";
+        }
+
+
+}
+    
+</script>
+</head>
+<body>
+
+        <!--폰트조절 이벤트-->
+    <button type="button" id="btn1">점점작게</button>
+    <button type="button" id="btn2">점점크게</button>
+    <hr>
+    <div id="fsize"></div>
+
+    <b>글자색선택:</b>
+    <input type="color" value="#ffooff" id="fontColor" >
+    <br>
+
+    <b>배경색선택:</b>
+    <input type="color" value="#ffooff" id="bgColor" >
+    <br>
+
+    <b>테두리선 굵기선택:</b>
+    <select name="" style="width: 120px;" id="selBorder">
+        <option value="0">없음</option>
+        <option value="">1</option>
+        <option value="">3</option>
+        <option value="">5</option>
+        <option value="">7</option>
+        <option value="">9</option>
+    </select>
+    <br>
+
+    <div id="out" style="font-size:40px;">오늘은 즐거운 금요일</div>
+
+</body>
+</html>

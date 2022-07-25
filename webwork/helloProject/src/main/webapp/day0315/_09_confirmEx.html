@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+     var ans = confirm("정말 삭제하시겠습니까?");
+
+     if (ans==1) {
+         document.write("삭제되었습니다<br>");
+     } else {
+        document.write("삭제하지 않습니다<br>");
+     }
+
+     //eval 함수 : 문자열 안에서 계산이 된다
+     var a = eval("10.5+5");
+     
+     document.write(a+"<br>"); //15.5
+     document.write(parseFloat(a)+parseInt(a)); //30.5
+
+     //prompt 창에 구구단의 단을 입력시
+     //2단을 입력하면 2*1=2......2*9=10
+
+     var dan = prompt("원하는 구구단을 입력하세요", "예)2");
+	 //document.write(typeof(dan));
+	 
+     for (let index = 1; index <= 9; index++) {
+            tot = dan*index; 
+            document.write("<br>"+dan+"x"+index+"="+tot);
+     }
+
+     //강사님풀이
+     var dan2 = Number(prompt("단","*단"));
+    
+     let i=1;
+     while(i<=9)
+     {
+        document.write(dan2+"*"+i+"="+(dan2*i)+"<br>")
+        i++;
+     }
+
+</script>
+</body>
+</html>

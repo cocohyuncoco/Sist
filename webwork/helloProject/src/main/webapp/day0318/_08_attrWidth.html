@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+        window.onload=function(){
+
+            //이미지 요소값 얻기
+            let p = document.getElementById("myimg");
+
+            //점점작게 버튼 클릭시 호출이벤트 
+            document.getElementById("btn1").onclick=function () {
+
+                //alert("버튼1");
+                //style로 width값 얻어오기
+                let w=p.style.width;
+
+                //console.log(w); //200px 이란 문자가 나옴
+                w = parseInt(w,10);
+                w-=10;
+               // console.log(w);
+                p.style.width=w+"px";
+            }
+
+           
+
+            btn2.onclick=function(){
+             
+                //alert("버튼1");
+                //style로 width값 얻어오기
+                let w=p.style.width;
+
+                //console.log(w); //200px 이란 문자가 나옴
+                w = parseInt(w,10);
+                w+=10;
+               // console.log(w);
+                p.style.width=w+"px";
+            }
+        }
+ 
+</script>
+</head>
+<body>
+
+    <h2>사진크기변경 다른방법으로 구현</h2>
+    <button type="button" id="btn1">점점작게</button>
+    <button type="button" id="btn2">점점크게</button>
+
+    <hr>
+
+    <img src="../image/ho.jpg" alt="유승호" style="width: 200px;" id="myimg">
+
+
+
+</body>
+</html>

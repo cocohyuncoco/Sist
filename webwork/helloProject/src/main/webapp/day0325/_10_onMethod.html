@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&family=Song+Myung&family=Stylish&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+<style>
+   /*
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Nanum Pen Script', cursive;
+        font-family: 'Single Day', cursive;
+        font-family: 'Song Myung', serif;
+        font-family: 'Stylish', sans-serif;
+    */
+</style>
+<script>
+
+    $(function () {
+
+        //.on("click"), .click() _차이점은 동적으로 이벤트 바인딩 할수있나 
+
+        $(".btn2").hide();
+        //on 메서드는 처음부터 존재하는것, 미래 생기게 될 요소 모두 이벤트 가능
+
+        $(".btn1").on("click",function () {
+            $(".box").slideUp(1000,'linear',function () {
+                $(".btn1").hide();
+                $(".btn2").show();
+            });
+        });
+    });
+
+</script>
+</head>
+<body>
+
+    <p>
+        <button type="button" class="btn1">slideUp</button>
+        <button type="button" class="btn2">fadeIn</button>
+    </p>
+    <p>
+        <button type="button" class="btn3">toggleSlide</button>
+    </p>
+
+    <div class="box">
+        <div class="content">
+            오늘은 즐거운 금요일 입니다....
+        </div>
+    </div>
+</body>
+</html>

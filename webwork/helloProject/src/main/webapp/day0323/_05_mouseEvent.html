@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!--제이쿼리 링크-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--부트스트랩 링크-->
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Gugi&family=Kirang+Haerang&display=swap" rel="stylesheet"> <!--구글폰트 링크-->
+</head>
+<body>
+
+
+    <h2>마우스를 올리면 이미지가 변경되고 벗어나면 다시 원래대로 변경</h2>
+    <img src="../image/f10.png" alt="" width="200">
+    <img src="../image/f11.png" alt="" width="200">
+    <img src="../image/f12.png" alt="" width="200">
+
+    <script>
+
+        $("img").mouseover(function () {
+            imgsrc = $(this).attr("src"); //자기자신만의 이미지경로를 복사해둠
+
+            $(this).attr("src","../image/f1.png");
+        });
+
+        $("img").mouseout(function () {
+                $(this).attr("src",imgsrc);
+        });
+
+    </script>
+</body>
+</html>

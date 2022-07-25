@@ -1,0 +1,182 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!-- style 꾸미기영역 -->
+    <style type="text/css">
+    #out{
+        position: absolute;
+        left: 10px;
+        top: 220px;
+        width: 400px;
+        height: 200px;
+        border: 2px solid gray;
+        background-color: rgb(255, 249, 182);
+        padding: 20 10;
+
+    }
+    </style>
+    <!-- script 동작영역 -->
+
+    <script type="text/javascript">
+
+
+    function disp(){
+
+        //이름
+        let name = document.getElementById("name").value;
+        out.innerHTML+=name+"<br>";
+
+        //비밀번호
+        let pass = document.getElementById("pass").value;
+        out.innerHTML+=pass+"<br>";
+
+        //프로그래스바
+        document.getElementById("btnprofress").onclick=function(){
+            //30~100사이의 난수값 
+            /*let rnd =  parseInt(Math.random()*71)+30;
+            pro.value=rnd;
+            prorand.innerHTML=rnd; */
+
+            //시간차 두고 출력 (interval)
+            let n =0;
+            prorand.innerHTML="";
+            let inter = setInterval(function(){
+                n++;
+                pro.value=n;
+                if (n==rnd) {
+                    prorand.innerHTML=rnd; //span 태그 출력
+                    clearInterval(inter); 
+                }
+
+            },30); //숫자가 적을수록 빨라짐, 0.03초마다 함수호출
+        
+        }
+
+        //checkbox를 이용한 다중선택
+        var flag=false;
+        var hobbyStr="나의 취미는 ";
+
+        for(var i=0;i<frm.hobby.length;i++){
+            //선택이 되면 value 값 읽어서 hobbyStr에 추가
+            if(frm.hobby[i].checked){
+                flag=true;
+                hobbyStr+=frm.hobby[i].value+" ";
+            }
+        }
+        //취미를 하나도 선택안했을 때
+        if(!flag){
+            hobbyStr="취미가 없습니다..<br>";
+        }
+        else{
+            hobbyStr+="입니다<br>";
+        }
+        out.innerHTML+="취미: "+hobbyStr;
+
+        //거주지 선택하여 div에 출력
+        //나의 거주지는 ##입니다.
+        var homeStr="나의 거주지는 ";
+
+        for(var i=0;i<frm.home.length;i++){
+            if(frm.home[i].checked){
+                homeStr+=frm.home[i].value+" 입니다<br>";
+            }
+        }
+        
+        // 거주지를 div에 출력
+        out.innerHTML+="거주지: "+homeStr;
+        // 나이를 div에 출력
+        out.innerHTML+="나이: "+frm.age.value+"<br>";
+  
+        
+    }
+
+    function init(){
+        out.innerHTML="";
+    }
+
+
+
+
+
+    </script>
+    </head>
+    <body>
+    <form action="#" name="frm">
+        <table border="1" style="width: 400px;">
+
+            <tr>
+                <th>이름</th>
+                <td>
+                    <!-- placeholder : 입력 가이드, value랑 같이쓰이면 value가 우선순위 -->
+                    <input type="text" id="name" size="10" placeholder="이름 입력">
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td>
+                    <input type="password" id="pass" size="10" placeholder="비밀번호 입력">
+                </td>
+            </tr>
+
+            <!-- 1행 : 취미 -->
+            <tr>
+                <th width="100">취미</th>   
+                <td>
+                    <input type="checkbox" name="hobby" value="게임">게임
+                    <input type="checkbox" name="hobby" value="낚시">낚시
+                    <input type="checkbox" name="hobby" value="독서">독서
+                    <input type="checkbox" name="hobby" value="영화">영화
+                    <input type="checkbox" name="hobby" value="음악">음악
+                </td>
+            </tr>
+            
+            <!--프로그래스바..랜덤-->
+            <tr>
+                <th width="100">나의 인기도</th>   
+                <td>
+                    <!--  <progress id="pro" max="100" value="0"></progress> -->
+                    <button type="button" id="btnprofress">측정버튼</button>&nbsp;&nbsp;&nbsp;
+                    <span id="prorand">0</span>
+                </td>
+            </tr> 
+
+            <!-- 2행 : 거주지 -->
+            <tr>
+                <th>거주지</th>
+                <td>
+                    <input type="radio" name="home" value="서울" checked="checked">서울
+                    <input type="radio" name="home" value="경기">경기
+                    <input type="radio" name="home" value="부산">부산
+                    <input type="radio" name="home" value="대전">대전
+                </td>
+            </tr>
+            <!-- 3행 : 연령 -->
+            <tr>
+                <th>연령</th>
+                <td>
+                    <select size="1" name="age">
+                        <option value="20대">20대</option>
+                        <option value="30대">30대</option>
+                        <option value="40대">40대</option>
+                        <option value="50대">50대</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- 버튼 -->
+            <tr align="center">
+                <td colspan="2">
+                    <input type="button" value="결과출력" onclick="disp()">
+                    <input type="button" value="초기화" onclick="init()">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+    <div id="out"></div>
+
+
+    </body>
+    </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+    function ok(){
+        alert("예 했습니다");
+    }
+    
+    function no(){
+        alert("안했습니다");
+    }
+
+    function s_confirm(){
+        if (confirm('수강신청을 하셨나요?')) {
+            alert("네 했어요");    
+        }else{
+            alert("아니요 아직 못했어요");    
+        }
+    
+        
+        
+    }
+</script>
+</head>
+<body>
+
+    <h2>수강신청을 하셨나요?</h2>
+    <form action="#">
+        <fieldset>
+            <legend>수강신청 확인</legend>
+            <input type="button" value="예" onclick="ok()">
+            <input type="button" value="아니오" onclick="no()">
+        </fieldset>
+    </form>
+
+    <hr>
+    <!-- 버튼 누르면 수강신청했나요? 라고 뜨고 확인 누르면 네 했어요-->
+    <div>
+        <input type="button" onclick="s_confirm()" value="눌러보세요">
+    </div>
+	
+</body>
+</html>
