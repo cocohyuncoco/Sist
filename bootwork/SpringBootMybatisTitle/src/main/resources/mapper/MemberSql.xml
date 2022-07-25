@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="data.mapper.MemberMapperInter">
+	
+	<insert id="insertMember" parameterType="mdto">
+		insert into member (name,id,pass,hp,addr,email,gaipday) values (#{name},#{id},#{pass},#{hp},#{addr},#{email},now())
+	</insert>
+
+	<select id="getAllMembers" resultType="mdto">
+		select * from member order by id asc	
+	</select>
+	
+	<!-- 입력한 id에 해당하는 id가 이미 있는지
+	select * from member where id='a1'
+	 -->
+	<select id="getSerchId" parameterType="String" resultType="int">
+		select * from member where id=#{id}
+	</select>
+		
+	<select id="getName" parameterType="String" resultType="String">
+		select name from member where id=#{id}
+	</select>
+	
+	<!-- 
+	select count(*) from member where id='a1' and pass='1111'
+	 -->
+	<select id="login" resultType="int" parameterType="HashMap">
+		select count(*) from member where id=#{id} and pass=#{pass}
+	</select>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from member where num=#{num}
+	</delete>	
+	
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="data.mapper.BookMapperInter">
+	
+	<select id="getTotalCount" resultType="int">
+		 select count(*) from seojum
+	</select>
+	
+	<select id="getAllDatas" resultType="bdto">
+		select * from seojum order by num asc
+	</select>
+	
+	<insert id="insertBook" parameterType="bdto">
+		insert into seojum (bookname,writer,bookprice,bookphoto,booksubject,bookcompany,ipgoday) values (#{bookname},#{writer},#{bookprice},#{bookphoto},#{booksubject},#{bookcompany},now())
+	</insert>
+	
+	<select id="getData" parameterType="String" resultType="bdto">
+	  	select * from seojum where num=#{num}
+	</select>
+	
+	<update id="updateBook" parameterType="bdto">
+		update seojum set bookname=#{bookname},writer=#{writer},bookprice=#{bookprice}
+		<if test="bookphoto!='null'">
+			,bookphoto=#{bookphoto}		
+		</if>
+		,booksubject=#{booksubject},bookcompany=#{bookcompany} where num=#{num}
+	</update>
+	
+	<delete id="deleteBook" parameterType="String">
+		delete from seojum where num=#{num}
+	</delete>
+	
+	
+	
+	
+	
+	
+</mapper>

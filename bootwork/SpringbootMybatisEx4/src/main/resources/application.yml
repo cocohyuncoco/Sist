@@ -1,0 +1,23 @@
+#tomket server
+server:
+  port: 9001
+#jsp setting
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/market/
+      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+#mySQL
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sist
+    username: root
+    password: 1234
+#mybatis
+mybatis:
+  type-aliases-package: data.dto,data.mapper
+  mapper-locations:
+  - /mapper/**/*.xml

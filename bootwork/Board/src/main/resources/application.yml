@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sist
+    username: root
+    password: 1234
+mybatis:
+  type-aliases-package: board.*
+  mapper-locations:
+  - /repository/**/*.xml

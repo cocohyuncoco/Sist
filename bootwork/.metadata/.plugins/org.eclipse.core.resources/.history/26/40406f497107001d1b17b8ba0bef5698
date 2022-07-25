@@ -1,0 +1,32 @@
+package data.controller;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import data.mapper.MemberMapperInter;
+
+@Controller
+public class MemberController {
+
+	@Autowired
+	MemberMapperInter member;
+	
+	@GetMapping("/member/form")
+	public String form() {
+		
+		return "/member/memberinsert";
+	}
+	
+	@GetMapping("/member/idcheck")
+	@ResponseBody
+	// json 형태 데이터는 키, 값 형태로 가져와야해서 Map사용
+	public Map<String, Integer> idcheck() {
+		return 
+	}
+	
+	
+}

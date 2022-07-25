@@ -1,0 +1,24 @@
+#tomket server
+server:
+  port: 9002
+#jsp setting
+spring:
+#Tiles 에서 리졸브 세팅했기 때문에 이거 쓸 일이 없어졌다
+  #mvc:
+    #view:
+      #prefix: /WEB-INF/ipgo/
+      #suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+#mySQL
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sist
+    username: root
+    password: 1234
+#mybatis
+mybatis:
+  type-aliases-package: data.*
+  mapper-locations:
+  - /mapper/**/*.xml
