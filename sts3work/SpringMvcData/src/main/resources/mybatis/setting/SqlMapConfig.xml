@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTDConfig 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+	<!-- Dto 등록...자동완성 안되기 때문에 정확하게 써야한다 (패키지명.파일명)-->
+	<typeAliases>
+		<typeAlias type="board.data.BoardDto" alias="bdto"/>
+		<typeAlias type="member.data.MemberDto" alias="mdto"/>
+		<typeAlias type="hoewon.data.HoewonDto" alias="hdto"/>		
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mybatis/setting/BoardSql.xml"/>
+		<mapper resource="mybatis/setting/MemberSql.xml"/>
+		<mapper resource="mybatis/setting/HoewonSql.xml"/>			
+	</mappers>
+	
+	
+</configuration>
+

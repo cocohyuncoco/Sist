@@ -1,0 +1,13 @@
+package answer.data;
+
+import java.sql.Timestamp;
+
+public class AnswerDto {
+
+	private int idx;
+	private int num;
+	private String nickname;
+	private String pass;
+	private String content;
+	private Timestamp writeday;
+}

@@ -1,0 +1,22 @@
+package board.data;
+
+import java.sql.Timestamp;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class BoardDto {
+
+	private int num;	
+	private String writer;
+	private String pass;
+	private String subject;
+	private String content;
+	private MultipartFile photo;
+	private int regroup;
+	private int restep;
+	private int relevel;
+	private int readcount;
+	private Timestamp writeday;
+	
+	
+}

@@ -1,0 +1,11 @@
+package answercontroller.data;
+
+
+
+@RestController
+public class JsonRestController {
+
+
+	
+	
+}

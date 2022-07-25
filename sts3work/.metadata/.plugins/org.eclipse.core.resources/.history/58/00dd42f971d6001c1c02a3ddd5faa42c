@@ -1,0 +1,19 @@
+package answercontroller.data;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import answer.data.AnswerDaoInter;
+
+@RestController //json전용 컨트롤러 생성
+public class AnswerRestController {
+
+	@Autowired
+	AnswerDaoInter dao;
+	
+	@GetMapping("/board/adelete")
+	public 
+}
+

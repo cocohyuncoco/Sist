@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="shop" class="di.day0510.test.shop">
+		<constructor-arg value="오렌지색"/>
+		<property name="sangpum" value="요가나시"/>
+		<property name="price" value="25000"/>
+	</bean>
+
+	<bean id="jumun" class="di.day0510.test.Jumun">
+		<constructor-arg value="유재석"/>
+		<property name="shop" ref="shop"/> <!-- 레버런스 shop -->
+		<property name="cnt" value="3"/>
+	</bean>
+
+</beans>

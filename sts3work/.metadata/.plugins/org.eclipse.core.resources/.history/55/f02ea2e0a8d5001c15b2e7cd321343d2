@@ -1,0 +1,27 @@
+package spring.mvc.reboard;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import board.data.BoardDaoInter;
+
+@Controller
+public class BoardContentController {
+
+	
+	@Autowired
+	BoardDaoInter dao;
+	
+	@GetMapping("board/content")
+	public ModelAndView content() {
+		
+		ModelAndView model = new ModelAndView();
+		
+		return model;
+	}
+	
+	
+
+}

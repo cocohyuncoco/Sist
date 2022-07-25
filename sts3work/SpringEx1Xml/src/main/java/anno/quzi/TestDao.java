@@ -1,0 +1,19 @@
+package anno.quzi;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class TestDao {
+
+		public void insert(String name) {
+			System.out.println(name+"¥‘ DB√ﬂ∞°");
+		}
+		
+		public void delete(String num) {
+			System.out.println(num+"π¯ µ•¿Ã≈Õ ªË¡¶");
+		}
+		
+		public void select(String name) {
+			System.out.println(name+"¥‘¿∫ Ω÷øÎ±≥¿∞ºæ≈Õø° ¥Ÿ¥’¥œ¥Ÿ");
+		}
+}

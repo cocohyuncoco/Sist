@@ -1,0 +1,13 @@
+package answercontroller.data;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController //json전용 컨트롤러 생성
+public class AnswerRestController {
+
+	
+	@PostMapping()
+	
+}
+

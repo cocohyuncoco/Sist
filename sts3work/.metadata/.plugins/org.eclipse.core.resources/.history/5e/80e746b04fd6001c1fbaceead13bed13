@@ -1,0 +1,9 @@
+package answer.data;
+
+public class AnswerDto {
+
+	private int idx;
+	private int num;
+	private String nickname;
+	
+}

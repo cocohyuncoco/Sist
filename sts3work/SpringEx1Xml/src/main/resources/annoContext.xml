@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- <bean id="Mydao" class="day0510.anno1.MyDao"/>
+	
+	<bean id="Logic" class="day0510.anno1.LogicController">
+		<constructor-arg ref="Mydao"/>
+	</bean> -->
+	
+	<!-- 어노테이션을 인식할 패키지를 등록해야한다 context (이제 파일 만들때 context도 추가해야함)-->
+	<!-- <context:component-scan base-package="day0510.anno1"/> -->
+	
+	<!-- 어노테이션을 인식_와일드카드 , 로 나열 * 사용도 가능 -->
+	<!-- 앞에 day0510이 붙어잇는 패키지를 다 인식해 주겠단 뜻 -->
+	<context:component-scan base-package="day0510.*"/>
+	
+</beans>

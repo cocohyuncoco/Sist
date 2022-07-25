@@ -1,0 +1,37 @@
+package answercontroller.data;
+
+import java.util.HashMap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
+
+import answer.data.AnswerDaoInter;
+
+@RestController //json전용 컨트롤러 생성
+public class AnswerRestController {
+
+	@Autowired
+	AnswerDaoInter adao;
+	
+	@GetMapping("/board/adelete")
+	public HashMap<String, Integer> answerDelete(
+			@RequestPart int idx,
+			@RequestPart String pass)
+	{	
+		int check = adao.getCheckPass(idx, pass);
+		
+		if (check==1) { //비번이 맞는경우 댓글삭제
+			adao.deleteAnswer(idx);
+		}
+		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("check", check); //{"check" : 1}
+		
+		
+		return ;
+	}
+}
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 여기서 id는 유일하기 때문에 2개 안나오게 엄청 길게씀 -->
+<mapper namespace="board">
+	<!-- count 가져오는 메서드 -->
+	<select id="selectCountOfBoard" resultType="int">
+		select count(*) from board		
+	</select>
+	
+	<insert id="insertOfBoard" parameterType="bdto">
+		insert into board (writer, subject, content, writeday) values (#{writer},#{subject},#{content},now())
+	</insert>
+	
+	<select id="selectAllOfBadrd" resultType="bdto">
+		 select * from board order by num asc
+	</select>
+	
+	<select id="selectOneOfBoard" parameterType="String" resultType="bdto">
+		select * from board where num=#{num}
+	</select>
+	
+	<update id="updateOfBoard" parameterType="bdto">
+		update board set writer=#{writer}, subject=#{subject}, content=#{content} where num=#{num}
+	</update>
+	
+	<delete id="deleteOfBoard" parameterType="bdto">
+		delete from board where num=#{num}
+	</delete>
+	
+	
+</mapper>
+

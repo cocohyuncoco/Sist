@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 인터페이스로 오버라이딩 받은거라 여기에선 name말고 id를 썼다 -->
+	<bean id="mesBean1" class="di.ex1.Message1"/>
+	<bean id="mesBean2" class="di.ex1.Message2"/>
+</beans>

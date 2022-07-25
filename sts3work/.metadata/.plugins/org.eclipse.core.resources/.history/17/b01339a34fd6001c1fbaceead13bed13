@@ -1,0 +1,6 @@
+package answer.data;
+
+public class AnswerDto {
+
+	private int idx;
+}

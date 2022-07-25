@@ -1,0 +1,23 @@
+package answercontroller.data;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+
+import board.data.BoardDaoInter;
+import board.data.BoardDto;
+
+@Controller
+public class JsonTestController {
+
+	BoardDaoInter dao;
+	
+	public List<BoardDto> list(){
+		
+		
+		
+		return null;		
+	}; 
+	
+	
+}

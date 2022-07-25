@@ -1,0 +1,14 @@
+package board.data;
+
+public interface BoardDaoInter {
+	
+	//µ¥ÀÌÅÍ ÃÑ °¹¼ö
+	public int getToralCount();
+	
+	//
+	public int getMaxNum();
+	
+	public void updateReStep(int regroup, int restep);
+	
+	public void insertReBoard(BoardDto dto);
+}

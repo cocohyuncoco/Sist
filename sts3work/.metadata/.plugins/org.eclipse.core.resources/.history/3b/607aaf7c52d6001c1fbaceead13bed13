@@ -1,0 +1,7 @@
+package answer.data;
+
+public interface AnswerDaoInter {
+	
+	public void insertAnswer();
+
+}

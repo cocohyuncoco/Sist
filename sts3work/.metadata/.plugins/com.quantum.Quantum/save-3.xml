@@ -1,0 +1,269 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="com.mysql.cj.jdbc.Driver" name="com.mysql.cj.jdbc.Driver" type="MYSQL" version="">
+			<jar fileName="C:\sist0117\util\mysql-connector-java-8.0.28.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="Apache Derby Embedded JDBC Driver" type="DERBY" version="10.3.1.4 - (561794)">
+			<jar fileName="C:/Users/quddn/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="com.mysql.jdbc.Driver" name="MySQL Connector/J" type="MYSQL" version="mysql-connector-java-8.0.28 (Revision: 7ff2161da3899f379fb3171b6538b191b1c5c7e2)">
+			<jar fileName="C:\sist0117\util\mysql-connector-java-8.0.28.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>hyun</username>
+			<password>12345678</password>
+			<prompt>false</prompt>
+			<connect>hyundb.c7nbr0gaj6sx.ap-northeast-2.rds.amazonaws.com</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:/Users/quddn/.p2/pool/plugins/com.quantum.derby_3.3.10/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+		<bookmark>
+			<name>sist</name>
+			<username>root</username>
+			<password />
+			<prompt>true</prompt>
+			<connect>jdbc:mysql://localhost:3306/sist</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\sist0117\util\mysql-connector-java-8.0.28.jar</driverLocation>
+			<Other_Schemas schemaRule="useSelected">
+				<schema>sist</schema>
+			</Other_Schemas>
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>DELETE FROM answer WHERE (idx = 4)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM answer WHERE (idx = 5)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM answer WHERE (idx = 9)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM answer WHERE (idx = 8)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM answer WHERE (idx = 7)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM answer WHERE (idx = 6)</queryString>
+				</query>
+				<query>
+					<queryString>create table shop2(shopnum smallint auto_increment primary key,
+category varchar(30),
+sangpum varchar(50),
+photo varchar(50),
+price int,
+ipgoday varchar(20))</queryString>
+				</query>
+				<query>
+					<queryString>create table cart(idx smallint auto_increment primary key,
+shopnum int references shop2(shopnum) on delete cascade,
+num int references member(num) on delete cascade,
+cnt int,
+cartday date)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM shop2 WHERE (shopnum = 1)</queryString>
+				</query>
+				<query>
+					<queryString>select * from shop2 where shopnum=2</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM cart WHERE (idx = 1)</queryString>
+				</query>
+				<query>
+					<queryString>create table smartboard (num smallint auto_increment primary key,
+writer varchar(20),
+subject varchar(200),
+content varchar(3000),
+readcount smallint default 0,
+writeday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM smartboard WHERE (num = 1)</queryString>
+				</query>
+				<query>
+					<queryString>create table board (num smallint auto_increment primary key,
+writer varchar(20),
+subject varchar(100),
+content varchar(200),
+writeday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>select * from board order by num asc</queryString>
+				</query>
+				<query>
+					<queryString>create table hoewon(num smallint primary key auto_increment,
+name  varchar(20),
+driver varchar(20),
+addr varchar(30),
+photo varchar(100),
+gaipday datetime)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM hoewon WHERE (num = 3)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM hoewon WHERE (num = 4)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM hoewon WHERE (num = 7)</queryString>
+				</query>
+				<query>
+					<queryString>create table reboard (num smallint auto_increment primary key,
+writer varchar(20),
+pass varchar(20),
+subject varchar(200),
+content varchar(2000),
+photo varchar(500),
+regroup smallint,
+restep smallint,
+relevel smallint,
+readcount smallint default 0,
+writeday datetime)</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>semiproject</name>
+			<username>admin</username>
+			<password>123456789</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://donghyundb.cwna7m4zkcso.ap-northeast-2.rds.amazonaws.com:3306/webservice</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\sist0117\util\mysql-connector-java-8.0.28.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>DELETE FROM cart WHERE (cnum = 175)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM cart WHERE (cnum = 176)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM cart WHERE (cnum = 177)</queryString>
+				</query>
+				<query>
+					<queryString>delete member, cart from member inner join cart on member.mnum = cart.mnum where '42'</queryString>
+				</query>
+				<query>
+					<queryString>delete member, cart from member inner join cart on member.mnum = cart.mnum where '44'</queryString>
+				</query>
+				<query>
+					<queryString>delete member, cart from member inner join cart on member.mnum = cart.mnum where'44'</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM cart WHERE (cnum = 223)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM cart WHERE (cnum = 224)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM cart WHERE (cnum = 225)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM review WHERE (rnum = 43)</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM signup WHERE (snum = 179)</queryString>
+				</query>
+				<query>
+					<queryString>delete member, cart from member inner join cart on member.mnum = cart.mnum where'48'</queryString>
+				</query>
+				<query>
+					<queryString>delete member, review from member inner join review on member.mnum = review.mnum where'48'</queryString>
+				</query>
+				<query>
+					<queryString>delete member, signup from member inner join signup on member.mnum = signup.mnum where'48'</queryString>
+				</query>
+				<query>
+					<queryString>delete member, cart from member inner join cart on member.mnum = cart.mnum where'51'</queryString>
+				</query>
+				<query>
+					<queryString>delete member, review from member inner join review on member.mnum = review.mnum where'51'</queryString>
+				</query>
+				<query>
+					<queryString>delete member, signup from member inner join signup on member.mnum = signup.mnum where'51'</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM member WHERE (mnum = 62)</queryString>
+				</query>
+				<query>
+					<queryString>SELECT l.lnum, l.title, ifnull(avg(r.rstar),0) avgrstar
+FROM lesson l
+    left outer JOIN review r
+   on r.lnum=l.lnum 
+where l.category = '요리' 
+group by lnum
+order by avgrstar desc</queryString>
+				</query>
+				<query>
+					<queryString>update member set password='l658190!@' where mnum='78'</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>hyundb</name>
+			<username>hyun</username>
+			<password>12345678</password>
+			<prompt>false</prompt>
+			<connect>jdbc:mysql://hyundb.c7nbr0gaj6sx.ap-northeast-2.rds.amazonaws.com :3306/webservice</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>com.mysql.jdbc.Driver</driver>
+			<type>MYSQL</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\sist0117\util\mysql-connector-java-8.0.28.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>

@@ -1,0 +1,50 @@
+package spring.mvc.reboard;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import board.data.BoardDaoInter;
+
+@Controller
+public class BoardUpdateController {
+
+	@Autowired
+	BoardDaoInter dao;
+	
+	@GetMapping("/board/updatepassform")
+	public ModelAndView update(
+			@RequestParam String num,
+			@RequestParam String currentPage)
+	{
+		
+		ModelAndView model = new ModelAndView();
+		model.addObject("num", num);
+		model.addObject("currentPage", currentPage);
+		
+		//맵핑주소랑 jsp주소 똑같이해서 똑같으거임
+		model.setViewName("board/updatepassform");
+		return model;
+		
+	}
+
+	
+	@PostMapping("/board/updatepass")
+	public ModelAndView updatepass(
+			@RequestParam String num,
+			@RequestParam String pass,
+			@RequestParam String currentPage)
+	{
+		
+		ModelAndView model = new ModelAndView();
+		
+		//비번이 맞으면 수정폼뜸, 틀리면 passfail폼
+		
+		
+		return model;
+	}
+}
+

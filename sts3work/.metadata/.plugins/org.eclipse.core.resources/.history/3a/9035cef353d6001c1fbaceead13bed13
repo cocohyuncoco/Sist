@@ -1,0 +1,24 @@
+package answercontroller.data;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import answer.data.AnswerDaoInter;
+import answer.data.AnswerDto;
+
+@Controller
+public class AnswerController {
+
+	@Autowired
+	AnswerDaoInter dao;
+	
+	@PostMapping("/board/ainsert")
+	public String answerInser(
+			@ModelAttribute AnswerDto dto) {
+		return "";
+	}
+	
+}
+

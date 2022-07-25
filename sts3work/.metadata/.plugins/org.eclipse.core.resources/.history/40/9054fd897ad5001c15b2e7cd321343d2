@@ -1,0 +1,9 @@
+package board.data;
+
+public interface BoardDaoInter {
+	
+	//µ¥ÀÌÅÍ ÃÑ °¹¼ö
+	public int getToralCount();
+	
+	
+}

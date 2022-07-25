@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 여기서 id는 유일하기 때문에 2개 안나오게 엄청 길게씀 -->
+<mapper namespace="member">
+	
+	<!-- member DB -->
+	<select id="selectCountOfMember" resultType="int">
+		select count(*) from member		
+	</select>
+	
+	<insert id="insertOfMember" parameterType="mdto">
+		insert into member (name, id, pass, hp, addr, email, gaipday) values (#{name},#{id},#{pass},#{hp},#{addr},#{email},now())
+	</insert>
+	
+	<select id="selectAllOfMember" resultType="mdto">
+		 select * from member order by num asc
+	</select>
+	
+	<select id="selectOneOfMember" parameterType="String" resultType="mdto">
+		select * from member where num=#{num}
+	</select>
+	
+	<update id="updateOfMember" parameterType="mdto">
+		update member set name=#{name}, id=#{id}, pass=#{pass}, hp=#{hp}, addr=#{addr}, email=#{email} where num=#{num}		 
+	</update>
+	
+	<delete id="deleteOfMember" parameterType="mdto">
+		delete from member where num=#{num}
+	</delete>
+	
+</mapper>
+

@@ -1,0 +1,23 @@
+package board.data;
+
+import java.util.List;
+
+public interface BoardDaoInter {
+	
+	//데이터 총 갯수
+	public int getToralCount();
+	
+	//num의 max값 구하기
+	public int getMaxNum();
+	
+	//num의 max값 구하기
+	public void updateReStep(int regroup, int restep);
+	
+	//insert
+	public void insertReBoard(BoardDto dto);
+	
+	//list 출력
+	public List<BoardDto> getList(int start, int perpage);
+	
+	
+}

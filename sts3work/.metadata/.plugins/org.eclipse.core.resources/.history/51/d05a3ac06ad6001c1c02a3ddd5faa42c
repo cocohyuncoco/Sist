@@ -1,0 +1,25 @@
+package answercontroller.data;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import board.data.BoardDaoInter;
+import board.data.BoardDto;
+
+@Controller
+public class JsonTestController {
+
+	@Autowired
+	BoardDaoInter dao;
+	
+	public List<BoardDto> list(){
+		
+			
+		
+		return dao.getList(0, 0);		
+	}; 
+	
+	
+}
