@@ -1,0 +1,6 @@
+127.0.0.1 - - [02/Apr/2022:15:05:21 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [02/Apr/2022:15:05:22 +0900] "GET /cloneCoding/html/naverMail.html HTTP/1.1" 200 3117
+0:0:0:0:0:0:0:1 - - [02/Apr/2022:15:05:22 +0900] "GET /cloneCoding/css/header.css HTTP/1.1" 200 6069
+0:0:0:0:0:0:0:1 - - [02/Apr/2022:15:05:22 +0900] "GET /cloneCoding/img/navermemoheader.png HTTP/1.1" 200 25813
+0:0:0:0:0:0:0:1 - - [02/Apr/2022:15:05:22 +0900] "GET /cloneCoding/img/sp_gnb_v14.png HTTP/1.1" 200 32647
+0:0:0:0:0:0:0:1 - - [02/Apr/2022:15:05:22 +0900] "GET /favicon.ico HTTP/1.1" 404 818

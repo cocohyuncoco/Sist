@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+C:\sist0117\wepwork\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3121372701.index
+2709768651.index
+2528967377.index
+1666182910.index
+3720735883.index
+403027190.index
+3342034314.index
+3163775259.index
+593087793.index
